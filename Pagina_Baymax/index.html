@@ -9,12 +9,18 @@
 <body>
 
 <header class="topbar">
-  <img src="img/logo_eskuela.png" alt="">
-  <a class="brand" href="#inicio"> SFIT</a>
+  <a class="brand" href="#inicio"> SFIT</a> 
   <nav>
     <a href="#inicio">Inicio</a>
-    <a href="#acerca">Acerca de nosotros</a>
-    <a href="#estrategia">Nuestra estrategia</a>
+    <div class="has-menu">
+      <a href="#acerca" aria-haspopup="true">Acerca de nosotros</a>
+      <ul class="menu">
+        <li><a href="#acerca">Quiénes somos</a></li>
+        <li><a href="#estrategia">Nuestra estrategia</a></li>
+        <li><a href="#acerca">Nuestro equipo</a></li>
+        <li><a href="#acerca">Historia</a></li>
+      </ul>
+    </div>
     <a href="#contacto">Contacto</a>
   </nav>
   <div class="ribbon" aria-hidden="true"></div>
@@ -22,10 +28,10 @@
 
 <!-- HERO -->
 <section class="hero" id="inicio">
-  <div class="skyline" aria-hidden="true"></div>
   <div class="hero-content">
-    <div class="badge"><span class="badge-inner">SF</span></div>
-    <h1>San Fransokyo<br>Institute of Technology</h1>
+
+    <div class="badge"><img src="img/logo_eskuela.png" alt=""></div>
+    <h1>Instituto Tecnologico<br>de San Fransokyo</h1>
     <p class="tag">Lorem ipsum dolor sit amet</p>
   </div>
   <div class="hero-cards">
