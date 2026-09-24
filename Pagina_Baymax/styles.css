@@ -147,8 +147,13 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .block-title { display: flex; align-items: center; gap: 12px; font-size: 1.8rem; color: #232c6b; margin-bottom: 26px; }
 .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--rust); }
 
+.foda-card{
+  width: 400px;
+  background: rgba(8,10,38,.75); border: 2px solid rgba(255,26,42,.35);
+  border-radius: 16px; padding: 24px;
+}
 /* Tarjetas comunes */
-.card, .foda-card, .step {
+.card, .step {
   background: rgba(8,10,38,.75); border: 2px solid rgba(255,26,42,.35);
   border-radius: 16px; padding: 24px;
 }
