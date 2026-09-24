@@ -1,0 +1,207 @@
+/* Paleta tomada del logo del SFIT */
+:root {
+  --navy: #10123f;
+  --navy-deep: #080a26;
+  --navy-soft: #1b1e5c;
+  --gold: #fbc82d;
+  --rust: #b4391b;
+  --rust-dark: #7f2510;
+  --cream: #fff4d0;
+  --text: #e9e9f7;
+  --muted: #a9abd0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  background: var(--navy-deep);
+  color: var(--text);
+  line-height: 1.6;
+}
+h1, h2, h3, h4, .brand {
+  font-family: "Impact", "Arial Narrow Bold", "Arial Black", sans-serif;
+  letter-spacing: .02em;
+  font-weight: 400;
+}
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+/* Engrane del logo */
+.gear {
+  display: inline-grid; place-items: center;
+  width: 42px; height: 42px; border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--navy) 55%, var(--rust) 56% 78%, var(--gold) 79%);
+  border: 3px dashed var(--gold);
+  color: var(--gold); font-size: .8rem;
+}
+.gear b { font-family: Impact, sans-serif; font-weight: 400; }
+
+/* Barra superior */
+.topbar {
+  position: absolute; inset: 0 0 auto 0; z-index: 10;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 8vw 18px 4vw;
+  background: linear-gradient(var(--navy-deep), transparent);
+}
+.brand { display: flex; align-items: center; gap: 12px; font-size: 1.4rem; color: var(--gold); }
+.topbar nav { display: flex; gap: 28px; margin-right: 90px; font-size: .95rem; }
+.topbar nav a:hover { color: var(--gold); }
+
+/* Listón colgante (como en la referencia) */
+.ribbon {
+  position: absolute; top: 0; right: 5vw; width: 64px; height: 150px;
+  background: var(--gold);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
+}
+.ribbon-bottom { top: auto; bottom: 0; transform: rotate(180deg); }
+
+/* Hero */
+.hero {
+  position: relative; min-height: 640px; padding: 190px 6vw 60px;
+  text-align: center; overflow: hidden;
+  background: linear-gradient(180deg, #ff9a5a 0%, #b4391b 35%, #3a1d5c 70%, var(--navy) 100%);
+}
+.skyline {
+  position: absolute; inset: auto 0 0 0; height: 55%;
+  background:
+    linear-gradient(var(--navy-deep), var(--navy-deep)) 4% 100% / 6% 55% no-repeat,
+    linear-gradient(var(--navy-deep), var(--navy-deep)) 12% 100% / 5% 75% no-repeat,
+    linear-gradient(var(--navy-deep), var(--navy-deep)) 20% 100% / 7% 45% no-repeat,
+    linear-gradient(var(--navy-deep), var(--navy-deep)) 30% 100% / 4% 85% no-repeat,
+    linear-gradient(var(--navy-deep), var(--navy-deep)) 66% 100% / 5% 70% no-repeat,
+    linear-gradient(var(--navy-deep), var(--navy-deep)) 75% 100% / 7% 50% no-repeat,
+    linear-gradient(var(--navy-deep), var(--navy-deep)) 84% 100% / 5% 80% no-repeat,
+    linear-gradient(var(--navy-deep), var(--navy-deep)) 93% 100% / 6% 60% no-repeat;
+  opacity: .85;
+}
+.hero-content { position: relative; }
+.badge {
+  width: 96px; height: 96px; margin: 0 auto 18px; border-radius: 50%;
+  background: var(--gold); display: grid; place-items: center;
+  border: 6px dashed var(--navy);
+  box-shadow: 0 0 0 5px var(--gold);
+}
+.badge-inner {
+  width: 62px; height: 62px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--navy); color: var(--gold); font-family: Impact, sans-serif; font-size: 1.6rem;
+}
+.hero h1 { font-size: clamp(2.2rem, 6vw, 4.2rem); line-height: 1.05; color: var(--cream); text-shadow: 0 4px 0 var(--rust-dark); }
+.tag { margin-top: 12px; color: var(--gold); letter-spacing: .12em; }
+
+.hero-cards {
+  position: relative; margin: 70px auto 0; max-width: 980px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+}
+.mini {
+  background: var(--navy-deep); border: 2px solid var(--gold); border-radius: 10px;
+  padding: 16px 18px; text-align: left;
+}
+.mini h3 { color: var(--gold); font-size: 1.1rem; margin-bottom: 4px; }
+.mini p { font-size: .8rem; color: var(--muted); }
+
+/* Acerca de nosotros */
+.about {
+  display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 40px;
+  padding: 90px 10vw; background: var(--navy-deep);
+}
+.small { color: var(--gold); font-size: .8rem; margin-bottom: 6px; }
+.about h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--cream); margin-bottom: 14px; }
+.about p { max-width: 60ch; margin-bottom: 12px; color: var(--muted); }
+.about strong { color: var(--text); }
+.about-photo {
+  min-height: 340px; border-radius: 14px; display: grid; place-items: center;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 14px, rgba(251,200,45,.08) 14px 28px),
+    linear-gradient(160deg, var(--rust), var(--navy-soft));
+  border: 3px solid var(--gold);
+  box-shadow: 14px 14px 0 var(--gold);
+  color: var(--cream); font-family: Impact, sans-serif; font-size: 1.4rem;
+}
+
+/* Nuestra estrategia */
+.strategy {
+  position: relative; padding: 100px 0 110px;
+  background: radial-gradient(circle at 20% 0%, var(--navy-soft), var(--navy) 60%);
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 6vw; }
+.section-title { font-size: clamp(2.2rem, 5vw, 3.6rem); color: var(--gold); }
+.section-sub { color: var(--muted); margin-bottom: 20px; }
+.block { margin-top: 64px; }
+.block-title { display: flex; align-items: center; gap: 12px; font-size: 1.8rem; color: var(--cream); margin-bottom: 26px; }
+.dot { width: 16px; height: 16px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px var(--rust); }
+
+/* Tarjetas comunes */
+.card, .foda-card, .step {
+  background: rgba(8,10,38,.75); border: 2px solid rgba(251,200,45,.35);
+  border-radius: 16px; padding: 24px;
+}
+
+/* 1.1 Filosofía */
+.phil-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { position: relative; border-top: 8px solid var(--gold); }
+.card-vision { border-top-color: var(--rust); }
+.card-valores { border-top-color: var(--cream); }
+.icon {
+  width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--gold); color: var(--navy); font-family: Impact, sans-serif; margin-bottom: 14px;
+}
+.card-vision .icon { background: var(--rust); color: var(--cream); }
+.card-valores .icon { background: var(--cream); }
+.card h4, .foda-card h4, .step h4 { font-size: 1.4rem; color: var(--cream); margin-bottom: 8px; }
+.card p, .step p { color: var(--muted); font-size: .92rem; }
+.card ul, .foda-card ul { list-style: none; }
+.card li, .foda-card li { padding: 6px 0 6px 20px; position: relative; color: var(--muted); font-size: .92rem; }
+.card li::before, .foda-card li::before {
+  content: ""; position: absolute; left: 0; top: 14px; width: 8px; height: 8px;
+  background: var(--gold); transform: rotate(45deg);
+}
+
+/* 1.2 FODA */
+.foda { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.foda-card { position: relative; overflow: hidden; }
+.letter {
+  position: absolute; right: 16px; top: -14px; font-family: Impact, sans-serif;
+  font-size: 7rem; line-height: 1; opacity: .18;
+}
+.foda-card.f { background: linear-gradient(135deg, rgba(251,200,45,.22), rgba(8,10,38,.8) 60%); }
+.foda-card.o { background: linear-gradient(135deg, rgba(255,244,208,.18), rgba(8,10,38,.8) 60%); }
+.foda-card.d { background: linear-gradient(135deg, rgba(180,57,27,.35), rgba(8,10,38,.8) 60%); }
+.foda-card.a { background: linear-gradient(135deg, rgba(127,37,16,.45), rgba(8,10,38,.8) 60%); }
+.f .letter { color: var(--gold); } .o .letter { color: var(--cream); }
+.d .letter, .a .letter { color: var(--rust); }
+
+/* 1.3 Hacia dónde vamos */
+.roadmap { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; position: relative; }
+.roadmap::before {
+  content: ""; position: absolute; top: 26px; left: 8%; right: 8%; height: 4px;
+  background: repeating-linear-gradient(90deg, var(--gold) 0 14px, transparent 14px 24px);
+}
+.roadmap li { position: relative; }
+.node {
+  position: relative; z-index: 1; display: grid; place-items: center;
+  width: 52px; height: 52px; margin: 0 auto 16px; border-radius: 50%;
+  background: var(--rust); color: var(--cream); border: 4px solid var(--gold);
+  font-family: Impact, sans-serif; font-size: 1.3rem;
+}
+.step { text-align: center; }
+
+/* Footer */
+footer {
+  display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.4fr; gap: 30px;
+  padding: 50px 10vw; background: #000; font-size: .85rem; color: var(--muted);
+}
+footer h5 { color: var(--gold); font-size: 1rem; margin-bottom: 10px; }
+footer a { display: block; padding: 2px 0; }
+footer a:hover { color: var(--gold); }
+.foot-brand { display: flex; gap: 12px; align-items: center; color: var(--cream); }
+
+/* Responsive */
+@media (max-width: 820px) {
+  .topbar nav { display: none; }
+  .hero-cards, .phil-grid, .foda, .roadmap, footer, .about { grid-template-columns: 1fr; }
+  .roadmap::before { display: none; }
+  .ribbon { width: 44px; height: 110px; }
+  .about-photo { min-height: 220px; box-shadow: 8px 8px 0 var(--gold); }
+}
