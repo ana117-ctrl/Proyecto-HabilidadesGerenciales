@@ -1,11 +1,352 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>San Fransokyo Institute of Technology</title>
+<style>
+:root{
+  --maroon-deep:#3a0a0a;
+  --maroon:#5c0f0f;
+  --maroon-mid:#7a1414;
+  --maroon-light:#941a1a;
+  --ember:#c23616;
+  --cream:#fdf1e5;
+  --cream-soft:#fbe9d8;
+  --ink:#2a0a0a;
+  --muted:#e0c7b8;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px);}
+body{
+  font-family:"Trebuchet MS","Segoe UI",sans-serif;
+  background:var(--maroon-deep);
+  color:var(--cream);
+  line-height:1.6;
+  background-image:
+    linear-gradient(var(--maroon-deep),var(--maroon-deep)),
+    repeating-linear-gradient(0deg, rgba(253,241,229,.04) 0 1px, transparent 1px 32px),
+    repeating-linear-gradient(90deg, rgba(253,241,229,.04) 0 1px, transparent 1px 32px);
+}
+a{color:inherit;text-decoration:none;}
+a:focus-visible, button:focus-visible{outline:3px solid var(--ember);outline-offset:3px;}
+h1,h2,h3,h4,.brand{
+  font-family:Impact,"Arial Narrow Bold","Arial Black",sans-serif;
+  letter-spacing:.02em; font-weight:400;
+}
+.wrap{max-width:1100px;margin:0 auto;padding:0 6vw;}
+
+/* Topbar */
+.topbar{
+  position:sticky; top:0; z-index:20;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:18px 6vw; padding-top:calc(18px + env(safe-area-inset-top,0px));
+  background:linear-gradient(var(--maroon-deep) 70%, transparent);
+}
+.brand{display:flex; align-items:center; gap:12px; font-size:1.4rem; color:var(--cream);}
+.gear{
+  display:inline-grid; place-items:center; width:40px; height:40px; border-radius:50%;
+  background:radial-gradient(circle, var(--maroon-light) 55%, var(--ember) 56% 78%, var(--cream) 79%);
+  border:3px dashed var(--ember); font-size:.75rem;
+}
+.topbar nav{display:flex; gap:28px; font-size:.95rem;}
+.topbar nav a:hover{color:var(--ember);}
+.has-menu{position:relative;}
+.has-menu>a::after{content:" \25BE"; font-size:.8em;}
+.menu{
+  position:absolute; top:100%; left:-14px; min-width:230px; z-index:30;
+  list-style:none; padding:8px; margin-top:8px;
+  background:var(--maroon); border:2px solid var(--ember); border-radius:12px;
+  box-shadow:0 12px 30px rgba(0,0,0,.5);
+  opacity:0; visibility:hidden; transform:translateY(8px);
+  transition:opacity .2s, transform .2s, visibility .2s;
+}
+.has-menu:hover .menu, .has-menu:focus-within .menu{opacity:1; visibility:visible; transform:none;}
+.menu a{display:block; padding:9px 14px; border-radius:8px;}
+.menu a:hover, .menu a:focus-visible{background:var(--ember); color:var(--cream);}
+@media (prefers-reduced-motion:reduce){.menu{transition:none;}}
+
+/* Hero */
+.hero{
+  position:relative; min-height:560px; padding:70px 6vw 60px;
+  text-align:center; overflow:hidden;
+}
+.badge{
+  width:92px; height:92px; margin:0 auto 18px; border-radius:50%;
+  background:var(--ember); display:grid; place-items:center;
+  border:6px dashed var(--maroon-light); box-shadow:0 0 0 5px var(--ember);
+  font-family:Impact,sans-serif; font-size:1.6rem; color:var(--cream);
+}
+.hero h1{font-size:clamp(2.1rem,6vw,4rem); line-height:1.05; color:var(--cream);
+  text-shadow:0 4px 0 var(--maroon-deep);}
+.tag{margin-top:12px; color:var(--muted); letter-spacing:.06em;}
+.hero-cards{
+  position:relative; margin:60px auto 0; max-width:980px;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+}
+.mini{
+  background:var(--maroon); border:2px solid var(--ember); border-radius:10px;
+  padding:16px 18px; text-align:left;
+}
+.mini h3{color:var(--cream); font-size:1.1rem; margin-bottom:4px;}
+.mini p{font-size:.82rem; color:var(--muted);}
+
+/* Acerca */
+.about{
+  display:grid; grid-template-columns:1.2fr .8fr; align-items:center; gap:40px;
+  padding:90px 6vw; background:var(--maroon-deep);
+}
+.small{color:var(--ember); font-size:.85rem; margin-bottom:6px; letter-spacing:.04em;}
+.about h2{font-size:clamp(1.9rem,4vw,2.8rem); color:var(--cream); margin-bottom:14px;}
+.about p{max-width:60ch; margin-bottom:12px; color:var(--muted);}
+.about strong{color:var(--cream);}
+.about-photo{
+  min-height:320px; border-radius:14px; display:grid; place-items:center;
+  background:repeating-linear-gradient(45deg, transparent 0 14px, rgba(253,241,229,.06) 14px 28px),
+    linear-gradient(160deg, var(--maroon-light), var(--maroon));
+  border:3px solid var(--ember); box-shadow:14px 14px 0 var(--ember);
+  color:var(--cream); font-family:Impact,sans-serif; font-size:1.3rem;
+}
+
+/* Estrategia */
+.strategy{padding:100px 0 110px; background:var(--cream);}
+.strategy .section-title{font-size:clamp(2rem,5vw,3.2rem); color:var(--maroon);}
+.strategy .section-sub{color:#7a5a4a; margin-bottom:20px;}
+.strategy .block{margin-top:64px;}
+.strategy .block-title{display:flex; align-items:center; gap:12px; font-size:1.7rem; color:var(--maroon); margin-bottom:26px;}
+.dot{width:16px; height:16px; border-radius:50%; background:var(--ember); box-shadow:0 0 0 4px rgba(194,54,22,.25);}
+
+/* Filosofia */
+.phil-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:22px;}
+.phil-copy{background:var(--maroon); border-radius:16px; padding:32px; border-top:8px solid var(--ember);}
+.phil-copy h4{color:var(--ember); font-size:1rem; letter-spacing:.03em; margin:18px 0 6px;}
+.phil-copy h4:first-child{margin-top:0;}
+.phil-copy p{color:var(--cream-soft); font-size:.95rem;}
+.valores-card{background:var(--maroon-deep); border-radius:16px; padding:28px; border-top:8px solid var(--cream);}
+.valores-card h4{color:var(--cream); font-size:1.3rem; margin-bottom:14px;}
+.valores-card ol{list-style:none; counter-reset:v 4;}
+.valores-card li{counter-increment:v; padding:12px 0; border-top:1px solid rgba(253,241,229,.12);}
+.valores-card li:first-child{border-top:none;}
+.valores-card li::before{content:counter(v) ".  "; color:var(--ember); font-family:Impact,sans-serif;}
+.valores-card b{color:var(--cream);}
+.valores-card span{display:block; color:var(--muted); font-size:.88rem; margin-top:2px;}
+
+/* FODA */
+.foda{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+.foda-card{position:relative; overflow:hidden; border-radius:16px; padding:26px; background:var(--maroon);}
+.letter{position:absolute; right:14px; top:-14px; font-family:Impact,sans-serif; font-size:6rem; line-height:1; opacity:.15; color:var(--cream);}
+.foda-card h4{color:var(--cream); font-size:1.25rem; margin-bottom:12px;}
+.foda-card ul{list-style:none;}
+.foda-card li{padding:6px 0 6px 20px; position:relative; color:var(--cream-soft); font-size:.9rem;}
+.foda-card li::before{content:""; position:absolute; left:0; top:14px; width:8px; height:8px; background:var(--ember); transform:rotate(45deg);}
+.foda-card.f{border-top:6px solid #cf8f3a;}
+.foda-card.o{border-top:6px solid #4a8a6f;}
+.foda-card.d{border-top:6px solid var(--ember);}
+.foda-card.a{border-top:6px solid var(--maroon-light);}
+
+/* Roadmap */
+.roadmap{list-style:none; display:grid; grid-template-columns:repeat(3,1fr); gap:20px; position:relative;}
+.roadmap::before{content:""; position:absolute; top:26px; left:8%; right:8%; height:4px;
+  background:repeating-linear-gradient(90deg, var(--ember) 0 14px, transparent 14px 24px);}
+.roadmap li{position:relative;}
+.node{position:relative; z-index:1; display:grid; place-items:center; width:52px; height:52px;
+  margin:0 auto 16px; border-radius:50%; background:var(--maroon-light); color:var(--cream);
+  border:4px solid var(--ember); font-family:Impact,sans-serif; font-size:1.3rem;}
+.step{text-align:center; background:var(--maroon); border-radius:16px; padding:22px;}
+.step h4{font-size:1.2rem; color:var(--cream); margin-bottom:8px;}
+.step p{color:var(--cream-soft); font-size:.9rem;}
+
+/* Equipo */
+.team{padding:90px 6vw; background:var(--maroon-deep);}
+.team .section-title{font-size:clamp(2rem,5vw,3rem); color:var(--cream); margin-bottom:30px;}
+.team-card{
+  background:var(--cream); color:var(--ink); border-radius:16px; padding:28px 32px;
+  max-width:460px; border-left:8px solid var(--ember);
+}
+.team-card h4{font-family:Impact,sans-serif; font-size:1.2rem; color:var(--maroon); margin-bottom:14px;}
+.team-card ul{list-style:none;}
+.team-card li{padding:6px 0 6px 22px; position:relative; font-weight:600; font-size:.95rem;}
+.team-card li::before{content:""; position:absolute; left:0; top:13px; width:9px; height:9px; background:var(--ember); border-radius:50%;}
+
+/* Footer */
+footer{
+  display:grid; grid-template-columns:1.3fr 1fr 1fr 1.4fr; gap:30px;
+  padding:50px 6vw; padding-bottom:calc(50px + env(safe-area-inset-bottom,0px));
+  background:var(--maroon); font-size:.85rem; color:var(--muted);
+}
+footer h5{color:var(--ember); font-size:1rem; margin-bottom:10px;}
+footer a{display:block; padding:2px 0;}
+footer a:hover{color:var(--cream);}
+.foot-brand{display:flex; gap:12px; align-items:center; color:var(--cream);}
+
+/* Responsive */
+@media (max-width:860px){
+  .topbar nav{display:none;}
+  .hero-cards,.about,.phil-grid,.foda,.roadmap,footer{grid-template-columns:1fr;}
+  .roadmap::before{display:none;}
+  .about-photo{min-height:200px; box-shadow:8px 8px 0 var(--ember);}
+}
+</style>
 </head>
 <body>
-    
+
+<header class="topbar">
+  <a class="brand" href="#inicio"><span class="gear">SF</span>SFIT</a>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <div class="has-menu">
+      <a href="#acerca" aria-haspopup="true">Acerca de nosotros</a>
+      <ul class="menu">
+        <li><a href="#acerca">Quiénes somos</a></li>
+        <li><a href="#estrategia">Nuestra estrategia</a></li>
+        <li><a href="#equipo">Nuestro equipo</a></li>
+        <li><a href="#acerca">Historia</a></li>
+      </ul>
+    </div>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="badge">SF</div>
+    <h1>Instituto Tecnológico<br>de San Fransokyo</h1>
+    <p class="tag">Innovación, robótica y bienestar humano</p>
+  </div>
+  <div class="hero-cards">
+    <article class="mini"><h3>Becas</h3><p>Programas de apoyo económico para talento con alto potencial.</p></article>
+    <article class="mini"><h3>Campus</h3><p>Instalaciones de alta tecnología dedicadas a la robótica aplicada.</p></article>
+    <article class="mini"><h3>Programas</h3><p>Formación multidisciplinaria orientada a la industria.</p></article>
+  </div>
+</section>
+
+<!-- ACERCA DE NOSOTROS -->
+<section class="about" id="acerca">
+  <div class="about-text">
+    <p class="small">Quiénes somos</p>
+    <h2>Acerca de nosotros</h2>
+    <p>El SFIT es una facultad de clase mundial con prestigio en robótica, reconocida por su exposición anual que atrae empresas y genera visibilidad institucional.</p>
+    <p><strong>Egresados que fundan empresas reconocidas en la industria.</strong></p>
+  </div>
+  <div class="about-photo" role="img" aria-label="Espacio para imagen"><img src="img/Uni2.jpg" alt=""></div>
+</section>
+
+<!-- NUESTRA ESTRATEGIA -->
+<section class="strategy" id="estrategia">
+  <div class="wrap">
+    <h2 class="section-title">Nuestra estrategia</h2>
+    <p class="section-sub">Filosofía, panorama y ruta de crecimiento de la institución.</p>
+
+    <!-- Filosofia -->
+    <div class="block">
+      <h3 class="block-title"><span class="dot"></span>Filosofía empresarial</h3>
+      <div class="phil-grid">
+        <div class="phil-copy">
+          <h4>Misión</h4>
+          <p>Desarrollar soluciones tecnológicas innovadoras y accesibles de asistencia y bienestar, diseñadas para mejorar la calidad de vida y el cuidado cotidiano de las personas.</p>
+          <h4>Visión</h4>
+          <p>Ser una organización referente en el desarrollo de dispositivos y soluciones de alta tecnología con un gran impacto humano, reconocidos por su funcionalidad, empatía y cercanía con el usuario.</p>
+        </div>
+        <div class="valores-card">
+          <h4>Valores</h4>
+          <ol>
+            <li><b>Calidad y Confianza</b><span>Garantizar que cada dispositivo y solución cumpla con los más altos estándares de seguridad, durabilidad y rendimiento.</span></li>
+            <li><b>Colaboración</b><span>Impulsar el trabajo en equipo, la multidisciplinariedad y el intercambio de ideas para potenciar la creatividad dentro de la empresa.</span></li>
+            <li><b>Sostenibilidad</b><span>Desarrollar procesos y productos responsables con el medio ambiente, buscando un equilibrio entre la tecnología y el cuidado del planeta.</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- FODA -->
+    <div class="block">
+      <h3 class="block-title"><span class="dot"></span>Análisis FODA</h3>
+      <div class="foda">
+        <article class="foda-card f">
+          <span class="letter">F</span>
+          <h4>Fortalezas</h4>
+          <ul>
+            <li>Facultad de clase mundial con prestigio en robótica</li>
+            <li>Exposición anual que atrae empresas y genera visibilidad institucional</li>
+            <li>Instalaciones especializadas de alta tecnología</li>
+            <li>Egresados que fundan empresas reconocidas en la industria</li>
+            <li>Fuerte respaldo financiero para infraestructura</li>
+          </ul>
+        </article>
+        <article class="foda-card o">
+          <span class="letter">O</span>
+          <h4>Oportunidades</h4>
+          <ul>
+            <li>Alianzas con empresas para financiamiento</li>
+            <li>Ampliar becas para atraer nuevos talentos</li>
+            <li>Modernizar sistemas de seguridad contra incidentes</li>
+            <li>Establecer protocolos en caso de investigación riesgosa</li>
+            <li>Aprovechar reconocimiento mediático por estudiantes destacados</li>
+          </ul>
+        </article>
+        <article class="foda-card d">
+          <span class="letter">D</span>
+          <h4>Debilidades</h4>
+          <ul>
+            <li>Falta de supervisión en laboratorios de alto riesgo</li>
+            <li>Cultura de rivalidad que fomenta mala conducta</li>
+            <li>Historial de encubrir incidentes graves que afectan la transparencia institucional</li>
+            <li>Poco apoyo económico accesible a estudiantes con potencial</li>
+            <li>Seguridad vulnerable por múltiples ataques al campus</li>
+          </ul>
+        </article>
+        <article class="foda-card a">
+          <span class="letter">A</span>
+          <h4>Amenazas</h4>
+          <ul>
+            <li>Competencia con otras instituciones de prestigio</li>
+            <li>Riesgo de robo de propiedad intelectual por exalumnos o rivales</li>
+            <li>Exposición pública a ataques criminales</li>
+            <li>Posibles demandas legales derivadas de accidentes previos</li>
+            <li>Pérdida de confianza de patrocinadores</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+
+    <!-- Hacia donde vamos -->
+    <div class="block">
+      <h3 class="block-title"><span class="dot"></span>Hacia dónde vamos</h3>
+      <ol class="roadmap">
+        <li><span class="node">1</span><div class="step"><h4>Corto plazo</h4><p>Modernizar la seguridad del campus y establecer protocolos claros de supervisión.</p></div></li>
+        <li><span class="node">2</span><div class="step"><h4>Mediano plazo</h4><p>Ampliar becas y alianzas estratégicas con empresas del sector.</p></div></li>
+        <li><span class="node">3</span><div class="step"><h4>Largo plazo</h4><p>Consolidarse como referente global en robótica con impacto humano.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+<section class="team" id="equipo">
+  <div class="wrap">
+    <h2 class="section-title">Nuestro equipo</h2>
+    <div class="team-card">
+      <h4>Equipo Azul</h4>
+      <ul>
+        <li>Valeria Mayrin Bermudez Raga</li>
+        <li>Liliana Sarahi Gutierrez Balderas</li>
+        <li>Emanuel Hernandez Aguirre</li>
+        <li>Jose Oswaldo Tienda Mendoza</li>
+        <li>Ana Zavala Arias</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="foot-brand"><span class="gear"><b>SF</b></span><p>San Fransokyo<br>Institute of Technology</p></div>
+  <div><h5>Contacto</h5><a href="#">Correo institucional</a><a href="#">Teléfono</a><a href="#">Redes sociales</a></div>
+  <div><h5>Nosotros</h5><a href="#acerca">Acerca de nosotros</a><a href="#estrategia">Nuestra estrategia</a></div>
+  <div><h5>Ubicación</h5><p>San Fransokyo, campus principal.</p></div>
+</footer>
+
 </body>
 </html>
