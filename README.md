@@ -7,4 +7,4 @@ https://www.figma.com/design/FNt5bWq6cJlkHPQiJsEn1v/Pagina_Baymax?node-id=0-1&t=
 
 
 
-Ana la verdad es que de momento no me gustan los colores en un momento mas que tenga tiempo lo checare bien pero se me hace feo 
+Ana de momento esto era para entregar pero por aqui te compartire las propuestas de paginas web para hacer una mas chevere
