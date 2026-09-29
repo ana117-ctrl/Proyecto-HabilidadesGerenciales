@@ -1,4 +1,5 @@
 🔵 Fila Superior (Tonos azules y púrpuras)
+
     Color 1 (Azul marino profundo): #0A1172  
     Color 2 (Azul índigo): #21135D  
     Color 3 (Púrpura oscuro): #35154E 
@@ -6,6 +7,7 @@
     Color 5 (Vino oscuro): #61113B  
 
      🔴 Fila Inferior (Primeros tres de izquierda a derecha)
-    Color 1 (Rojo vino): #7A1032  
+     
+      Color 1 (Rojo vino): #7A1032  
       Color 2 (Rojo carmesí): #960C26  
       Color 3 (Rojo intenso): #B50819   
