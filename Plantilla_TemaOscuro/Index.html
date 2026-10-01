@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[NOMBRE DE LA EMPRESA]</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+:root{--bg:#05030a;--navy:#0A1172;--indigo:#21135D;--purple:#35154E;--plum:#4D1343;--crimson:#960C26;--red:#B50819;--white:#eef8ff;--muted:#b4c2d0;--line:rgba(77,19,67,.6);--mono:"Space Mono",monospace;--sans:Inter,system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 78% 10%,rgba(33,19,93,.25),transparent 30%),radial-gradient(circle at 10% 60%,rgba(77,19,67,.18),transparent 32%),var(--bg);color:var(--white);font:400 18px/1.6 var(--sans);overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}
+.progress{position:fixed;left:0;top:0;height:3px;width:0;background:var(--red);z-index:90}
+nav{position:fixed;top:0;left:0;right:0;height:76px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(5,3,10,.95),rgba(5,3,10,.5));backdrop-filter:blur(8px);z-index:80}
+.logo{font-weight:800;font-size:24px;letter-spacing:-.05em}.logo span{color:var(--red)}
+.navlinks{display:flex;gap:28px;font:14px var(--mono)}.navlinks a:hover{color:var(--red)}
+.hero{min-height:100vh;display:grid;align-items:center;padding:130px 7vw 80px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:80px 80px;opacity:.5;mask-image:linear-gradient(to bottom,transparent,#000 20%,#000 60%,transparent)}
+.hero-orb{position:absolute;width:50vw;height:50vw;right:-10vw;top:8vh;border-radius:50%;background:radial-gradient(circle,rgba(10,17,114,.34),rgba(53,21,78,.2) 40%,rgba(181,8,25,.1) 60%,transparent 72%)}
+.hero-in{position:relative;max-width:900px}
+.hero h1{font-size:clamp(3.2rem,8vw,7rem);line-height:.95;letter-spacing:-.06em;margin:0 0 24px}
+.hero h1 span{display:block;color:transparent;-webkit-text-stroke:1px rgba(238,248,255,.7)}
+.hero p{font-size:1.35rem;max-width:620px;color:var(--muted)}
+.cta{display:inline-block;margin-top:26px;padding:16px 26px;border:1px solid var(--red);font:15px var(--mono);transition:.3s}.cta:hover{background:var(--red)}
+.sec{padding:110px 7vw}
+.tag{font:14px var(--mono);color:var(--red);letter-spacing:.12em}
+.sec>h2{font-size:clamp(2.8rem,6vw,5.5rem);letter-spacing:-.06em;line-height:.95;margin:10px 0 0}
+.sub{font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-.03em;margin:80px 0 12px;padding-left:16px;border-left:3px solid var(--red)}
+.lead{font-size:1.2rem;color:var(--muted);max-width:640px;margin:0 0 32px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px}
+.card{padding:30px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(33,19,93,.35),rgba(5,3,10,.9));transition:transform .3s,border-color .3s}.card:hover{transform:translateY(-5px);border-color:var(--red)}
+.card h4{font-size:1.6rem;margin:0 0 10px;letter-spacing:-.02em}.card p{margin:0;color:var(--muted);font-size:1.12rem}
+.ico{width:60px;height:60px;display:grid;place-items:center;border:1px solid var(--red);font:12px var(--mono);color:var(--red);margin-bottom:18px}
+.img{position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,var(--indigo),var(--plum))}
+.img img{width:100%;height:100%;object-fit:cover;display:block}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.split ul{padding-left:22px;font-size:1.2rem;color:var(--muted)}.split li{margin-bottom:10px}
+.foda{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.foda .card{border-top:4px solid var(--c)}.foda .card h4{color:var(--c)}.foda ul{margin:12px 0 0;padding-left:20px;color:var(--muted);font-size:1.12rem}.foda li{margin-bottom:6px}
+.big{font-size:clamp(3rem,5vw,4.5rem);font-weight:800;letter-spacing:-.06em;color:var(--red);line-height:1}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.tabs button{padding:14px 22px;background:transparent;border:1px solid var(--line);font:14px var(--mono);transition:.3s}.tabs button.on,.tabs button:hover{background:var(--red);border-color:var(--red)}
+.panel{display:none}.panel.on{display:grid;animation:in .5s}@keyframes in{from{opacity:0;transform:translateY(12px)}}
+.timeline{position:relative;max-width:900px;margin:auto}.timeline:before{content:"";position:absolute;left:20px;top:0;bottom:0;width:2px;background:linear-gradient(var(--red),var(--indigo))}
+.step{position:relative;padding:0 0 38px 64px}.step:before{content:"";position:absolute;left:11px;top:6px;width:20px;height:20px;border-radius:50%;background:var(--bg);border:2px solid var(--red)}
+.step h4{font-size:1.5rem;margin:0}.step p{margin:4px 0 0;color:var(--muted);font-size:1.12rem}
+.org{display:flex;flex-direction:column;align-items:center;gap:38px}.lvl{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.node{position:relative;min-width:210px;padding:18px 24px;text-align:center;border:1px solid var(--red);background:linear-gradient(135deg,rgba(33,19,93,.6),rgba(77,19,67,.4))}.node b{display:block;font-size:1.25rem}.node small{color:var(--muted);font-size:1rem}
+.lvl:not(:first-child) .node:before{content:"";position:absolute;left:50%;top:-38px;height:37px;width:1px;background:var(--red)}
+.flip{height:280px;perspective:1000px;cursor:pointer}.flip-in{position:relative;height:100%;transition:transform .6s;transform-style:preserve-3d}.flip.on .flip-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;padding:28px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(33,19,93,.5),rgba(5,3,10,.95));display:flex;flex-direction:column;justify-content:center}
+.face h4{font-size:1.6rem;margin:0 0 8px}.face p{margin:0;color:var(--muted)}.back{transform:rotateY(180deg);background:linear-gradient(135deg,var(--plum),var(--indigo))}.hint{font:12px var(--mono);color:var(--red);margin-top:14px}
+.carousel{position:relative}.track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px}.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 min(330px,82%);scroll-snap-align:start;border:1px solid var(--line);background:linear-gradient(135deg,rgba(33,19,93,.35),rgba(5,3,10,.9))}
+.slide .img{aspect-ratio:1;border:0}.slide div.t{padding:22px}.slide h4{font-size:1.5rem;margin:0}.slide small{color:var(--red);font:13px var(--mono)}.slide p{margin:8px 0 0;color:var(--muted);font-size:1.1rem}
+.arrows{display:flex;gap:10px;margin-top:20px}.arrows button{width:52px;height:52px;background:transparent;border:1px solid var(--red);font-size:1.4rem;transition:.3s}.arrows button:hover{background:var(--red)}
+details{border:1px solid var(--line);background:rgba(33,19,93,.25);margin-bottom:12px}summary{padding:22px 26px;font-size:1.4rem;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between}summary:after{content:"+";color:var(--red);font-size:1.8rem;line-height:1}details[open] summary:after{content:"–"}details p{margin:0;padding:0 26px 24px;color:var(--muted);font-size:1.12rem}
+.chips{display:flex;flex-wrap:wrap;gap:12px}.chip{padding:14px 24px;border:1px solid var(--red);border-radius:40px;font-size:1.2rem;background:rgba(181,8,25,.08)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.kpi{padding:36px 22px;border-right:1px solid var(--line)}.kpi:last-child{border:0}.kpi p{margin:8px 0 0;color:var(--muted)}
+.cycle{display:grid;grid-template-columns:repeat(4,1fr);gap:34px}.cycle .card{position:relative}.cycle .card:not(:last-child):after{content:"›";position:absolute;right:-28px;top:50%;font-size:2.2rem;color:var(--red);transform:translateY(-50%)}
+.cta-box{margin-top:80px;padding:50px;text-align:center;border:1px solid var(--line);background:linear-gradient(135deg,rgba(10,17,114,.3),rgba(77,19,67,.3))}.cta-box h3{font-size:2.4rem;margin:0 0 10px}
+footer{padding:50px 7vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--muted);font:14px var(--mono)}
+.reveal{opacity:0;transform:translateY(30px);transition:.8s}.reveal.v{opacity:1;transform:none}
+@media(max-width:850px){.navlinks{display:none}.split,.foda{grid-template-columns:1fr}.cycle{grid-template-columns:1fr 1fr}.cycle .card:after{display:none}.sec{padding:80px 6vw}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<nav>
+  <a class="logo" href="#top">[LOGO]</a>
+  <div class="navlinks"><a href="#estrategia">ESTRATEGIA</a><a href="#organizacion">ORGANIZACIÓN</a><a href="#trabajo">FORMA DE TRABAJAR</a><a href="#compromiso">COMPROMISO</a></div>
+</nav>
+ 
+<!-- ============ PORTADA ============ -->
+<header class="hero" id="top">
+  <div class="hero-orb"></div>
+  <div class="hero-in">
+    <h1>[NOMBRE DE LA EMPRESA]<span>[SLOGAN]</span></h1>
+    <p><!-- ✏️ Una sola frase de presentación -->[Frase breve de presentación]</p>
+    <a class="cta" href="#estrategia">[TEXTO DEL BOTÓN]</a>
+  </div>
+</header>
+ 
+<!-- ======================================================
+     1. NUESTRA ESTRATEGIA
+====================================================== -->
+<section class="sec" id="estrategia">
+  <div class="tag">[01]</div><h2>Nuestra estrategia</h2>
+ 
+  <!-- 1.1 FILOSOFÍA: 3 tarjetas + chips de valores -->
+  <h3 class="sub">Nuestra filosofía</h3>
+  <div class="cards reveal">
+    <div class="card"><div class="ico">[ICONO]</div><h4>Misión</h4><p>[✏️ Texto breve de la misión]</p></div>
+    <div class="card"><div class="ico">[ICONO]</div><h4>Visión</h4><p>[✏️ Texto breve de la visión]</p></div>
+    <div class="card"><div class="ico">[ICONO]</div><h4>Valores</h4>
+      <div class="chips" style="margin-top:10px"><!-- ✏️ un chip por valor (duplica la línea) -->
+        <span class="chip">[Valor 1]</span><span class="chip">[Valor 2]</span><span class="chip">[Valor 3]</span><span class="chip">[Valor 4]</span>
+      </div></div>
+  </div>
+ 
+  <!-- 1.2 FODA: 4 cuadrantes de color -->
+  <h3 class="sub">Nuestro panorama</h3>
+  <div class="foda reveal">
+    <div class="card" style="--c:#4fc98a"><h4>Fortalezas</h4><ul><!-- ✏️ --><li>[Punto]</li><li>[Punto]</li><li>[Punto]</li></ul></div>
+    <div class="card" style="--c:#4f8bff"><h4>Oportunidades</h4><ul><li>[Punto]</li><li>[Punto]</li><li>[Punto]</li></ul></div>
+    <div class="card" style="--c:#f2b84b"><h4>Debilidades</h4><ul><li>[Punto]</li><li>[Punto]</li><li>[Punto]</li></ul></div>
+    <div class="card" style="--c:var(--red)"><h4>Amenazas</h4><ul><li>[Punto]</li><li>[Punto]</li><li>[Punto]</li></ul></div>
+  </div>
+ 
+  <!-- 1.3 HACIA DÓNDE VAMOS: tarjetas con número/etiqueta grande -->
+  <h3 class="sub">Hacia dónde vamos</h3>
+  <div class="cards reveal">
+    <div class="card"><div class="big">[META / %]</div><h4>[Objetivo]</h4><p>[✏️ Descripción corta]</p></div>
+    <div class="card"><div class="big">[META / %]</div><h4>[Objetivo]</h4><p>[✏️ Descripción corta]</p></div>
+    <div class="card"><div class="big">[META / %]</div><h4>[Objetivo]</h4><p>[✏️ Descripción corta]</p></div>
+  </div>
+ 
+  <!-- 1.4 ESTRATEGIAS: pestañas dinámicas (cada botón abre su panel) -->
+  <h3 class="sub">Nuestras estrategias</h3>
+  <div class="tabs" data-tabs>
+    <button class="on" data-p="e1">[Estrategia 1]</button><button data-p="e2">[Estrategia 2]</button><button data-p="e3">[Estrategia 3]</button>
+  </div>
+  <div class="split panel on" id="e1"><div class="img"><img src="imagenes/imagen1.jpg" alt="[Descripción]"></div><div><h4 style="font-size:1.8rem;margin:0 0 10px">[Título estrategia 1]</h4><ul><li>[✏️ Punto]</li><li>[✏️ Punto]</li></ul></div></div>
+  <div class="split panel" id="e2"><div class="img"><img src="imagenes/imagen1.jpg" alt="[Descripción]"></div><div><h4 style="font-size:1.8rem;margin:0 0 10px">[Título estrategia 2]</h4><ul><li>[✏️ Punto]</li><li>[✏️ Punto]</li></ul></div></div>
+  <div class="split panel" id="e3"><div class="img"><img src="imagenes/imagen1.jpg" alt="[Descripción]"></div><div><h4 style="font-size:1.8rem;margin:0 0 10px">[Título estrategia 3]</h4><ul><li>[✏️ Punto]</li><li>[✏️ Punto]</li></ul></div></div>
+ 
+  <!-- 1.5 DE LA ESTRATEGIA A LA ACCIÓN: línea de tiempo (duplica .step) -->
+  <h3 class="sub">De la estrategia a la acción</h3>
+  <div class="timeline reveal">
+    <div class="step"><h4>[Acción 1]</h4><p>[✏️ Descripción corta · responsable · fecha]</p></div>
+    <div class="step"><h4>[Acción 2]</h4><p>[✏️ Descripción corta]</p></div>
+    <div class="step"><h4>[Acción 3]</h4><p>[✏️ Descripción corta]</p></div>
+    <div class="step"><h4>[Acción 4]</h4><p>[✏️ Descripción corta]</p></div>
+  </div>
+</section>
+ 
+<!-- ======================================================
+     2. NUESTRA ORGANIZACIÓN
+====================================================== -->
+<section class="sec" id="organizacion">
+  <div class="tag">[02]</div><h2>Nuestra organización</h2>
+ 
+  <!-- 2.1 ESTRUCTURA: organigrama (cada .lvl es un nivel; duplica .node) -->
+  <h3 class="sub">Nuestra estructura</h3>
+  <div class="org reveal">
+    <div class="lvl"><div class="node"><b>[Puesto nivel 1]</b><small>[Área]</small></div></div>
+    <div class="lvl"><div class="node"><b>[Puesto nivel 2]</b><small>[Área]</small></div><div class="node"><b>[Puesto nivel 2]</b><small>[Área]</small></div><div class="node"><b>[Puesto nivel 2]</b><small>[Área]</small></div></div>
+    <div class="lvl"><div class="node"><b>[Puesto nivel 3]</b><small>[Área]</small></div><div class="node"><b>[Puesto nivel 3]</b><small>[Área]</small></div><div class="node"><b>[Puesto nivel 3]</b><small>[Área]</small></div></div>
+  </div>
+ 
+  <!-- 2.2 ÁREAS: tarjetas que giran al hacer clic (frente = nombre, reverso = función) -->
+  <h3 class="sub">Nuestras áreas</h3>
+  <div class="cards reveal">
+    <div class="flip"><div class="flip-in"><div class="face"><div class="ico">[ICONO]</div><h4>[Nombre del área]</h4><span class="hint">CLIC PARA VER</span></div><div class="face back"><h4>[Nombre del área]</h4><p>[✏️ Función en una frase]</p></div></div></div>
+    <div class="flip"><div class="flip-in"><div class="face"><div class="ico">[ICONO]</div><h4>[Nombre del área]</h4><span class="hint">CLIC PARA VER</span></div><div class="face back"><h4>[Nombre del área]</h4><p>[✏️ Función en una frase]</p></div></div></div>
+    <div class="flip"><div class="flip-in"><div class="face"><div class="ico">[ICONO]</div><h4>[Nombre del área]</h4><span class="hint">CLIC PARA VER</span></div><div class="face back"><h4>[Nombre del área]</h4><p>[✏️ Función en una frase]</p></div></div></div>
+  </div>
+ 
+  <!-- 2.3 EQUIPO: carrusel con foto (duplica .slide) -->
+  <h3 class="sub">Nuestro equipo</h3>
+  <div class="carousel reveal">
+    <div class="track" id="trackEquipo">
+      <div class="slide"><div class="img"><img src="imagenes/imagen1.jpg" alt="[Nombre]"></div><div class="t"><small>[PUESTO]</small><h4>[Nombre]</h4><p>[✏️ Funciones y responsabilidades]</p></div></div>
+      <div class="slide"><div class="img"><img src="imagenes/imagen1.jpg" alt="[Nombre]"></div><div class="t"><small>[PUESTO]</small><h4>[Nombre]</h4><p>[✏️ Funciones y responsabilidades]</p></div></div>
+      <div class="slide"><div class="img"><img src="imagenes/imagen1.jpg" alt="[Nombre]"></div><div class="t"><small>[PUESTO]</small><h4>[Nombre]</h4><p>[✏️ Funciones y responsabilidades]</p></div></div>
+      <div class="slide"><div class="img"><img src="imagenes/imagen1.jpg" alt="[Nombre]"></div><div class="t"><small>[PUESTO]</small><h4>[Nombre]</h4><p>[✏️ Funciones y responsabilidades]</p></div></div>
+    </div>
+    <div class="arrows"><button data-track="trackEquipo" data-dir="-1" aria-label="Anterior">‹</button><button data-track="trackEquipo" data-dir="1" aria-label="Siguiente">›</button></div>
+  </div>
+</section>
+ 
+<!-- ======================================================
+     3. NUESTRA FORMA DE TRABAJAR
+====================================================== -->
+<section class="sec" id="trabajo">
+  <div class="tag">[03]</div><h2>Nuestra forma de trabajar</h2>
+ 
+  <!-- 3.1 CULTURA: tarjetas de principios con icono -->
+  <h3 class="sub">Nuestra cultura de trabajo</h3>
+  <div class="cards reveal">
+    <div class="card"><div class="ico">[ICONO]</div><h4>[Principio]</h4><p>[✏️ Frase corta]</p></div>
+    <div class="card"><div class="ico">[ICONO]</div><h4>[Principio]</h4><p>[✏️ Frase corta]</p></div>
+    <div class="card"><div class="ico">[ICONO]</div><h4>[Principio]</h4><p>[✏️ Frase corta]</p></div>
+    <div class="card"><div class="ico">[ICONO]</div><h4>[Principio]</h4><p>[✏️ Frase corta]</p></div>
+  </div>
+ 
+  <!-- 3.2 LIDERAZGO: imagen + texto -->
+  <h3 class="sub">Cómo lideramos</h3>
+  <div class="split reveal">
+    <div class="img"><img src="imagenes/imagen1.jpg" alt="[Descripción]"></div>
+    <div><h4 style="font-size:1.8rem;margin:0 0 10px">[Estilo de liderazgo]</h4><p class="lead" style="margin:0">[✏️ Frase de cómo se aplica]</p><ul><li>[✏️ Punto]</li><li>[✏️ Punto]</li><li>[✏️ Punto]</li></ul></div>
+  </div>
+ 
+  <!-- 3.3 COMUNICACIÓN: un canal por tarjeta -->
+  <h3 class="sub">Cómo nos comunicamos</h3>
+  <div class="cards reveal">
+    <div class="card"><div class="ico">[ICONO]</div><h4>[Canal / medio]</h4><p>[✏️ Para qué se usa]</p></div>
+    <div class="card"><div class="ico">[ICONO]</div><h4>[Canal / medio]</h4><p>[✏️ Para qué se usa]</p></div>
+    <div class="card"><div class="ico">[ICONO]</div><h4>[Canal / medio]</h4><p>[✏️ Para qué se usa]</p></div>
+  </div>
+ 
+  <!-- 3.4 IMPULSAMOS: acordeón desplegable (duplica <details>) -->
+  <h3 class="sub">Cómo impulsamos a nuestro equipo</h3>
+  <div class="reveal">
+    <details open><summary>[Acción: motivar]</summary><p>[✏️ Descripción corta]</p></details>
+    <details><summary>[Acción: reconocer]</summary><p>[✏️ Descripción corta]</p></details>
+    <details><summary>[Acción: involucrar]</summary><p>[✏️ Descripción corta]</p></details>
+  </div>
+ 
+  <!-- 3.5 TRABAJAMOS EN EQUIPO: carrusel de imágenes con texto -->
+  <h3 class="sub">Trabajamos en equipo</h3>
+  <div class="carousel reveal">
+    <div class="track" id="trackEquipo2">
+      <div class="slide"><div class="img"><img src="imagenes/imagen1.jpg" alt="[Descripción]"></div><div class="t"><h4>[Colaboración]</h4><p>[✏️ Frase corta]</p></div></div>
+      <div class="slide"><div class="img"><img src="imagenes/imagen1.jpg" alt="[Descripción]"></div><div class="t"><h4>[Coordinación]</h4><p>[✏️ Frase corta]</p></div></div>
+      <div class="slide"><div class="img"><img src="imagenes/imagen1.jpg" alt="[Descripción]"></div><div class="t"><h4>[Participación]</h4><p>[✏️ Frase corta]</p></div></div>
+    </div>
+    <div class="arrows"><button data-track="trackEquipo2" data-dir="-1" aria-label="Anterior">‹</button><button data-track="trackEquipo2" data-dir="1" aria-label="Siguiente">›</button></div>
+  </div>
+</section>
+ 
+<!-- ======================================================
+     4. NUESTRO COMPROMISO
+====================================================== -->
+<section class="sec" id="compromiso">
+  <div class="tag">[04]</div><h2>Nuestro compromiso</h2>
+ 
+  <!-- 4.1 ESTÁNDARES: tarjetas con insignia -->
+  <h3 class="sub">Nuestros estándares</h3>
+  <div class="cards reveal">
+    <div class="card"><div class="ico">[ICONO]</div><h4>[Estándar]</h4><p>[✏️ Criterio que se compromete a mantener]</p></div>
+    <div class="card"><div class="ico">[ICONO]</div><h4>[Estándar]</h4><p>[✏️ Criterio]</p></div>
+    <div class="card"><div class="ico">[ICONO]</div><h4>[Estándar]</h4><p>[✏️ Criterio]</p></div>
+  </div>
+ 
+  <!-- 4.2 MEDIMOS: indicadores con número animado (data-target = número final) -->
+  <h3 class="sub">Medimos nuestros resultados</h3>
+  <div class="kpis reveal">
+    <div class="kpi"><div class="big"><span class="count" data-target="0">0</span>[%]</div><p>[✏️ Indicador]</p></div>
+    <div class="kpi"><div class="big"><span class="count" data-target="0">0</span>[%]</div><p>[✏️ Indicador]</p></div>
+    <div class="kpi"><div class="big"><span class="count" data-target="0">0</span>[%]</div><p>[✏️ Indicador]</p></div>
+    <div class="kpi"><div class="big"><span class="count" data-target="0">0</span>[%]</div><p>[✏️ Indicador]</p></div>
+  </div>
+ 
+  <!-- 4.3 SEGUIMIENTO Y MEJORA: ciclo de 4 pasos -->
+  <h3 class="sub">Seguimiento y mejora</h3>
+  <div class="cycle reveal">
+    <div class="card"><div class="big">1</div><h4>[Revisamos]</h4><p>[✏️ Frase corta]</p></div>
+    <div class="card"><div class="big">2</div><h4>[Detectamos]</h4><p>[✏️ Frase corta]</p></div>
+    <div class="card"><div class="big">3</div><h4>[Actuamos]</h4><p>[✏️ Frase corta]</p></div>
+    <div class="card"><div class="big">4</div><h4>[Mejoramos]</h4><p>[✏️ Frase corta]</p></div>
+  </div>
+ 
+  <!-- CIERRE (opcional) -->
+  <div class="cta-box reveal"><h3>[Frase de cierre]</h3><a class="cta" href="#top">[BOTÓN / CONTACTO]</a></div>
+</section>
+ 
+<footer><span>[NOMBRE DE LA EMPRESA]</span><span>© 2026</span></footer>
+ 
+<script>
+// Barra de progreso
+const bar=document.getElementById('progress');
+addEventListener('scroll',()=>{bar.style.width=scrollY/(document.documentElement.scrollHeight-innerHeight)*100+'%'},{passive:true});
+// Aparecer al hacer scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// Pestañas
+document.querySelectorAll('[data-tabs]').forEach(t=>t.addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  t.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id===b.dataset.p));
+}));
+// Tarjetas que giran
+document.querySelectorAll('.flip').forEach(f=>f.addEventListener('click',()=>f.classList.toggle('on')));
+// Carruseles
+document.querySelectorAll('[data-track]').forEach(b=>b.addEventListener('click',()=>{
+  const t=document.getElementById(b.dataset.track);t.scrollBy({left:b.dataset.dir*(t.firstElementChild.offsetWidth+20),behavior:'smooth'});
+}));
+// Contadores
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;
+  const el=e.target,T=+el.dataset.target,s=performance.now();
+  (function tick(n){const p=Math.min(1,(n-s)/1200);el.textContent=Math.round(T*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick)})(s);
+  co.unobserve(el)}),{threshold:.5});
+document.querySelectorAll('.count').forEach(c=>co.observe(c));
+</script>
+</body>
+</html>
+ 
