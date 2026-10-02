@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SFIT — Strategic Plan 2026–2030">
+<title>SFIT // Strategic Interface</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<style>
+:root{
+  --bg:#03060b; --bg2:#07111d; --panel:rgba(8,20,34,.72);
+  --cyan:#22d9ff; --cyan2:#66efff; --orange:#ff5a36; --white:#f4fbff;
+  --muted:#8194a8; --line:rgba(34,217,255,.20); --max:1240px;
+}
+*{box-sizing:border-box} html{scroll-behavior:auto}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.08;background:repeating-linear-gradient(0deg,transparent 0 3px,#fff 4px);mix-blend-mode:overlay}
+a{color:inherit;text-decoration:none} button{font:inherit}
+.page{position:relative}.noise{position:fixed;inset:0;z-index:89;pointer-events:none;background:radial-gradient(circle at 50% 20%,rgba(34,217,255,.07),transparent 40%)}
+.container{width:min(var(--max),calc(100% - 48px));margin:auto}
+.mono,.eyebrow,.hud,.metric-label,.station-num{font-family:"Space Grotesk",monospace;letter-spacing:.14em;text-transform:uppercase}
+.eyebrow{font-size:11px;color:var(--cyan);margin-bottom:16px}
+h1,h2,h3{font-family:"Space Grotesk",sans-serif;margin:0;line-height:.95}
+h2{font-size:clamp(42px,7vw,92px);letter-spacing:-.05em}
+p{color:#afc0d0;line-height:1.7}
+section{position:relative}
+
+/* intro */
+#intro{position:fixed;inset:0;background:#000;z-index:100;display:grid;place-items:center}
+.intro-inner{text-align:center;width:min(520px,90vw)}
+.intro-line{height:1px;background:var(--cyan);transform:scaleX(0);box-shadow:0 0 22px var(--cyan)}
+.emblem{width:105px;height:105px;margin:30px auto 22px;position:relative;display:grid;place-items:center}
+.emblem:before,.emblem:after{content:"";position:absolute;inset:8px;border:1px solid var(--cyan);transform:rotate(45deg)}
+.emblem:after{inset:18px;border-color:rgba(255,90,54,.7);transform:rotate(0)}
+.emblem span{font:700 22px "Space Grotesk";color:var(--cyan)}
+.intro-copy{font:11px "Space Grotesk";letter-spacing:.22em;color:#b8c8d7;line-height:2.2}
+
+/* top nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:70;padding:22px 0;mix-blend-mode:screen}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.brand{font:700 16px "Space Grotesk";letter-spacing:.14em}.brand i{display:inline-block;width:7px;height:7px;background:var(--cyan);box-shadow:0 0 12px var(--cyan);margin-right:8px}
+.status{font-size:10px;color:#9fb1c1}.status b{color:var(--cyan)}
+.sound{border:1px solid var(--line);background:rgba(0,0,0,.25);color:#b9cad8;padding:8px 11px;font-size:10px;letter-spacing:.13em;cursor:pointer}
+
+/* progress */
+.progress{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:60;display:grid;gap:16px}
+.progress button{width:8px;height:8px;border-radius:50%;padding:0;border:1px solid #5f768b;background:transparent;cursor:pointer;transition:.3s}
+.progress button.active{background:var(--cyan);box-shadow:0 0 15px var(--cyan);transform:scale(1.6)}
+.progress:before{content:"";position:absolute;width:1px;height:calc(100% + 20px);background:var(--line);left:3px;top:-10px;z-index:-1}
+
+/* hero */
+.hero{min-height:100svh;display:grid;align-items:center;overflow:hidden;background:radial-gradient(circle at 50% 72%,rgba(20,87,120,.25),transparent 35%),linear-gradient(#02050a,#071522)}
+.hero-content{position:relative;z-index:10;padding-top:80px}
+.hero-title{font-size:clamp(58px,10vw,145px);max-width:1000px;letter-spacing:-.075em}
+.hero-title .accent{color:var(--cyan)}
+.hero-sub{max-width:540px;margin:28px 0;font-size:16px}
+.cta{display:inline-flex;gap:22px;align-items:center;border:1px solid var(--cyan);padding:15px 18px;background:rgba(34,217,255,.04);color:white;font:600 11px "Space Grotesk";letter-spacing:.15em;text-transform:uppercase;position:relative;overflow:hidden;cursor:pointer}
+.cta:before{content:"";position:absolute;inset:0;background:var(--cyan);transform:translateX(-101%);transition:transform .35s;z-index:-1}
+.cta:hover{color:#001018}.cta:hover:before{transform:translateX(0)}
+.cta span:last-child{color:var(--orange);transition:.3s}.cta:hover span:last-child{transform:translateX(5px)}
+.hud-corner{position:absolute;right:0;top:36%;font:10px "Space Grotesk";color:#607689;line-height:2.2;text-align:right}
+.city{position:absolute;inset:auto 0 0;height:52%;pointer-events:none}
+.skyline{position:absolute;bottom:0;left:-5%;width:110%;height:72%;background:
+ linear-gradient(90deg,transparent 0 3%,#071522 3% 8%,transparent 8% 11%,#0a1b2b 11% 17%,transparent 17% 20%,#071522 20% 24%,transparent 24% 28%,#0b2133 28% 37%,transparent 37% 40%,#071522 40% 45%,transparent 45% 49%,#0a1a29 49% 57%,transparent 57% 61%,#081827 61% 68%,transparent 68% 72%,#0a1d30 72% 79%,transparent 79% 84%,#071522 84% 89%,transparent 89%);clip-path:polygon(0 43%,5% 43%,5% 32%,9% 32%,9% 55%,14% 55%,14% 24%,18% 24%,18% 48%,23% 48%,23% 18%,27% 18%,27% 51%,33% 51%,33% 29%,38% 29%,38% 42%,43% 42%,43% 13%,47% 13%,47% 47%,52% 47%,52% 25%,56% 25%,56% 45%,62% 45%,62% 20%,66% 20%,66% 48%,72% 48%,72% 31%,77% 31%,77% 52%,83% 52%,83% 17%,87% 17%,87% 43%,93% 43%,93% 27%,100% 27%,100% 100%,0 100%)}
+.bridge{position:absolute;left:15%;bottom:22%;width:70%;height:150px;border-bottom:3px solid var(--orange);border-radius:50%;opacity:.8;filter:drop-shadow(0 0 10px rgba(255,90,54,.3))}
+.bridge:before,.bridge:after{content:"";position:absolute;bottom:0;width:20px;height:140px;background:linear-gradient(var(--orange),transparent);opacity:.6}.bridge:before{left:15%}.bridge:after{right:15%}
+.building{position:absolute;left:50%;bottom:17%;transform:translateX(-50%);width:min(420px,55vw);height:240px;border:1px solid rgba(34,217,255,.5);background:linear-gradient(180deg,rgba(19,60,83,.5),rgba(2,8,14,.95));clip-path:polygon(12% 100%,12% 36%,22% 22%,78% 22%,88% 36%,88% 100%);box-shadow:0 0 70px rgba(34,217,255,.12)}
+.building:after{content:"SFIT";position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);font:700 54px "Space Grotesk";letter-spacing:.12em;color:rgba(34,217,255,.22)}
+.grid{position:absolute;inset:auto 0 0;height:34%;background:linear-gradient(rgba(34,217,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(34,217,255,.1) 1px,transparent 1px);background-size:60px 60px;transform:perspective(400px) rotateX(60deg);transform-origin:bottom;opacity:.35}
+.scanline{position:absolute;left:0;right:0;height:1px;background:var(--cyan);box-shadow:0 0 14px var(--cyan);opacity:.4;animation:scan 5s linear infinite}@keyframes scan{from{bottom:55%}to{bottom:2%}}
+
+/* transition */
+.transition{min-height:80vh;display:grid;place-items:center;background:#02050a;overflow:hidden}
+.light-sweep{position:absolute;width:150%;height:1px;background:var(--cyan);box-shadow:0 0 50px 10px rgba(34,217,255,.22);transform:rotate(-8deg);opacity:0}
+.transition-title{text-align:center;position:relative;z-index:2}.transition-title h2{font-size:clamp(34px,6vw,78px)}.transition-meta{margin-top:28px;color:#6e8498;font-size:11px;line-height:2;letter-spacing:.2em}
+
+/* stations */
+.strategy{background:linear-gradient(#02060b,#07111d 30%,#02060b);padding-bottom:120px}
+.section-head{min-height:70vh;display:flex;align-items:center}.section-head p{max-width:520px}
+.station{min-height:105vh;padding:100px 0;display:grid;align-items:center;border-top:1px solid rgba(34,217,255,.08)}
+.station-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px;align-items:center}
+.station-num{font-size:12px;color:var(--cyan);margin-bottom:18px}.station h3{font-size:clamp(40px,5vw,70px);margin-bottom:24px}.station-copy{max-width:460px}
+.panel{border:1px solid var(--line);background:var(--panel);backdrop-filter:blur(16px);padding:28px;position:relative;overflow:hidden}
+.panel:before{content:"";position:absolute;left:0;top:0;width:45%;height:1px;background:var(--cyan);box-shadow:0 0 18px var(--cyan)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{min-height:155px;border:1px solid rgba(34,217,255,.14);padding:18px;background:rgba(0,10,20,.45);transition:.4s;position:relative}.card:hover{border-color:var(--cyan);transform:translateY(-5px);background:rgba(34,217,255,.05)}.card strong{display:block;font:600 12px "Space Grotesk";letter-spacing:.1em;color:var(--cyan);margin-bottom:12px}.card p{font-size:12px;margin:0;line-height:1.55}
+.foda{display:grid;grid-template-columns:1fr 1fr;gap:12px}.foda .box{min-height:190px;padding:22px;border:1px solid rgba(34,217,255,.15);background:rgba(0,0,0,.25)}.box b{font:600 11px "Space Grotesk";letter-spacing:.15em}.box p{font-size:12px}
+.box.internal{border-left:2px solid var(--cyan)}.box.external{border-left:2px solid var(--orange)}
+.timeline{position:relative;padding:20px 0}.timeline-line{position:absolute;left:16px;top:0;bottom:0;width:1px;background:rgba(34,217,255,.15)}.timeline-progress{position:absolute;left:15px;top:0;width:3px;height:0;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}.milestone{position:relative;padding:0 0 54px 52px}.milestone .dot{position:absolute;left:10px;top:3px;width:13px;height:13px;border:1px solid var(--cyan);border-radius:50%;background:#06111b}.milestone.active .dot{background:var(--cyan);box-shadow:0 0 20px var(--cyan)}.milestone b{font:600 11px "Space Grotesk";color:var(--cyan);letter-spacing:.15em}.milestone h4{font:500 25px "Space Grotesk";margin:8px 0}.milestone p{font-size:12px;margin:0;max-width:600px}
+.strategy-tags{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.tag{padding:7px 9px;border:1px solid rgba(255,90,54,.35);color:#ff9b83;font:600 10px "Space Grotesk";letter-spacing:.12em}.action-table{width:100%;border-collapse:collapse}.action-table th,.action-table td{text-align:left;padding:15px 10px;border-bottom:1px solid rgba(34,217,255,.1);font-size:12px}.action-table th{color:var(--cyan);font:600 10px "Space Grotesk";letter-spacing:.12em}
+
+/* hotspots */
+.campus{min-height:90vh;padding:120px 0;background:radial-gradient(circle at 50% 45%,rgba(34,217,255,.08),transparent 35%)}
+.map{height:600px;position:relative;border:1px solid var(--line);background:linear-gradient(rgba(34,217,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(34,217,255,.045) 1px,transparent 1px);background-size:40px 40px;overflow:hidden}
+.map-campus{position:absolute;inset:16%;border:1px solid rgba(34,217,255,.25);transform:skewY(-3deg);background:linear-gradient(135deg,rgba(34,217,255,.04),transparent)}
+.map-campus:before{content:"SFIT CAMPUS // LIVE SCAN";position:absolute;left:20px;top:18px;font:10px "Space Grotesk";color:#5d7488}
+.hotspot{position:absolute;width:14px;height:14px;border:1px solid var(--cyan);border-radius:50%;background:#05131d;box-shadow:0 0 0 5px rgba(34,217,255,.04),0 0 14px rgba(34,217,255,.35);cursor:pointer;transition:.3s}.hotspot:after{content:"";position:absolute;inset:-8px;border:1px solid rgba(34,217,255,.2);border-radius:50%;animation:pulse 2.4s infinite}@keyframes pulse{50%{transform:scale(1.5);opacity:.1}}
+.hotspot:hover,.hotspot.open{transform:scale(1.5);background:var(--cyan)}
+.hotspot-panel{position:absolute;right:25px;bottom:25px;width:min(330px,calc(100% - 50px));padding:20px;border:1px solid var(--cyan);background:rgba(2,8,14,.9);opacity:0;transform:translateY(10px);pointer-events:none;transition:.3s}.hotspot-panel.show{opacity:1;transform:none}.hotspot-panel b{font:600 12px "Space Grotesk";color:var(--cyan);letter-spacing:.12em}.hotspot-panel p{font-size:12px;margin:9px 0 0}
+
+/* gallery */
+.gallery{padding:100px 0}.gallery-grid{display:grid;grid-template-columns:1.3fr .7fr .7fr;gap:10px}.gallery-item{min-height:220px;border:1px solid rgba(34,217,255,.12);background:linear-gradient(135deg,#0a2233,#02060b);position:relative;overflow:hidden}.gallery-item:first-child{grid-row:span 2;min-height:450px}.gallery-item:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(34,217,255,.25),transparent 35%);transition:.5s}.gallery-item:hover:before{transform:scale(1.3)}.gallery-label{position:absolute;left:18px;bottom:15px;font:10px "Space Grotesk";letter-spacing:.13em;color:white}
+
+/* close */
+.footer{min-height:70vh;display:grid;place-items:center;text-align:center;border-top:1px solid var(--line);background:radial-gradient(circle at center,rgba(34,217,255,.08),transparent 35%)}
+.footer h2{max-width:900px;margin:auto}.footer p{max-width:570px;margin:25px auto 30px}.footer-mark{margin:50px auto 0;width:70px;height:70px;border:1px solid var(--cyan);display:grid;place-items:center;color:var(--cyan);font:700 15px "Space Grotesk";transform:rotate(45deg)}.footer-mark span{transform:rotate(-45deg)}
+.reveal{opacity:0;transform:translateY(35px)}
+@media(max-width:800px){
+ .container{width:min(100% - 30px,var(--max))}.nav .status{display:none}.progress{right:12px}.hud-corner{display:none}
+ .hero-title{font-size:clamp(52px,15vw,90px)}.building{height:180px;width:70vw}.bridge{left:0;width:100%}
+ .station-grid{grid-template-columns:1fr;gap:30px}.station{min-height:auto;padding:100px 0}.cards,.foda{grid-template-columns:1fr}.map{height:500px}.map-campus{inset:10% 6%}
+ .gallery-grid{grid-template-columns:1fr 1fr}.gallery-item:first-child{grid-column:span 2;min-height:300px}.gallery-item{min-height:180px}
+ body:before{opacity:.035}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}.scanline,.hotspot:after{animation:none!important}.reveal{opacity:1;transform:none!important}
+}
+</style>
+</head>
+<body>
+<div id="intro"><div class="intro-inner">
+  <div class="intro-line"></div><div class="emblem"><span>SFIT</span></div>
+  <div class="intro-copy">SYSTEM INITIALIZING<br>PROJECT // SFIT<br>STRATEGIC PLAN // 2026–2030</div>
+</div></div>
+<div class="noise"></div>
+
+<header class="nav"><div class="container nav-inner">
+  <div class="brand"><i></i>SFIT // 001</div>
+  <div class="status">CAMPUS SYSTEMS // <b>ONLINE</b></div>
+  <button class="sound" id="soundBtn">SOUND // OFF</button>
+</div></header>
+
+<nav class="progress" aria-label="Progreso">
+  <button class="active" data-target="station01" title="Filosofía"></button>
+  <button data-target="station02" title="Panorama"></button>
+  <button data-target="station03" title="Horizonte"></button>
+  <button data-target="station04" title="Estrategia"></button>
+  <button data-target="station05" title="Acción"></button>
+</nav>
+
+<main class="page">
+<section class="hero" id="home">
+ <div class="container hero-content">
+   <div class="eyebrow reveal">SAN FRANSOKYO INSTITUTE OF TECHNOLOGY</div>
+   <h1 class="hero-title reveal">Donde las ideas<br>se convierten en <span class="accent">héroes.</span></h1>
+   <p class="hero-sub reveal">Una interfaz estratégica para visualizar cómo SFIT transforma investigación, ingeniería y creatividad en impacto para las personas.</p>
+   <a href="#station01" class="cta reveal"><span>Comenzar el recorrido</span><span>→</span></a>
+   <div class="hud-corner">SFIT_01 // CONNECTED<br>COORD // 37.7749 / -122.4194<br>STRATEGIC SYSTEM // ACTIVE</div>
+ </div>
+ <div class="city" aria-hidden="true"><div class="skyline"></div><div class="bridge"></div><div class="building"></div><div class="grid"></div><div class="scanline"></div></div>
+</section>
+
+<section class="transition">
+ <div class="light-sweep"></div>
+ <div class="transition-title">
+   <div class="eyebrow">PROJECT // 001</div>
+   <h2>SAN FRANSOKYO<br>INSTITUTE OF TECHNOLOGY</h2>
+   <div class="transition-meta">STATUS // ACTIVE<br>CAMPUS SYSTEMS // NOMINAL</div>
+ </div>
+</section>
+
+<section class="strategy">
+ <div class="section-head container">
+  <div>
+   <div class="eyebrow">STRATEGIC JOURNEY // 05 STATIONS</div>
+   <h2>De dónde<br>venimos →<br>hacia dónde<br><span style="color:var(--cyan)">vamos.</span></h2>
+   <p>El plan estratégico se presenta como un recorrido: identidad, diagnóstico, horizonte, decisiones y ejecución.</p>
+  </div>
+ </div>
+
+ <article class="station" id="station01">
+  <div class="container station-grid">
+   <div><div class="station-num">01 // FILOSOFÍA</div><h3>Nuestra<br>identidad.</h3><p class="station-copy">Una institución que entiende la tecnología como una herramienta para resolver problemas reales y ampliar las posibilidades de las personas.</p></div>
+   <div class="panel"><div class="cards">
+    <div class="card"><strong>MISIÓN</strong><p>Formar talento tecnológico capaz de investigar, crear y convertir conocimiento en soluciones útiles.</p></div>
+    <div class="card"><strong>VISIÓN</strong><p>Ser un referente internacional de innovación interdisciplinaria con impacto humano.</p></div>
+    <div class="card"><strong>VALORES</strong><p>Curiosidad · colaboración · precisión · ética · servicio · valentía creativa.</p></div>
+   </div></div>
+  </div>
+ </article>
+
+ <article class="station" id="station02">
+  <div class="container station-grid">
+   <div><div class="station-num">02 // PANORAMA</div><h3>El sistema<br>bajo análisis.</h3><p class="station-copy">El FODA separa las condiciones internas del instituto de las condiciones externas que pueden abrir o limitar oportunidades.</p></div>
+   <div class="panel"><div class="foda">
+    <div class="box internal"><b>FORTALEZAS</b><p>• Talento interdisciplinario<br>• Cultura experimental<br>• Infraestructura tecnológica<br>• Ecosistema de proyectos</p></div>
+    <div class="box internal"><b>DEBILIDADES</b><p>• Costos de investigación<br>• Dependencia de talento especializado<br>• Procesos que requieren mayor coordinación</p></div>
+    <div class="box external"><b>OPORTUNIDADES</b><p>• IA y robótica<br>• Alianzas con industria<br>• Nuevos modelos educativos<br>• Retos urbanos y sociales</p></div>
+    <div class="box external"><b>AMENAZAS</b><p>• Competencia tecnológica<br>• Obsolescencia acelerada<br>• Brechas de acceso<br>• Riesgos de ciberseguridad</p></div>
+   </div></div>
+  </div>
+ </article>
+
+ <article class="station" id="station03">
+  <div class="container station-grid">
+   <div><div class="station-num">03 // HORIZONTE</div><h3>Diseñar<br>el futuro.</h3><p class="station-copy">Metas ficticias editables para visualizar una ruta de crecimiento de corto, mediano y largo plazo.</p></div>
+   <div class="panel">
+    <div class="cards">
+     <div class="card"><strong>2026–27</strong><p>24 laboratorios · 18 programas · 5,000 estudiantes.</p></div>
+     <div class="card"><strong>2028–29</strong><p>40 alianzas · 100 proyectos activos · expansión internacional.</p></div>
+     <div class="card"><strong>2030</strong><p>Consolidar un ecosistema de innovación con impacto medible.</p></div>
+    </div>
+   </div>
+  </div>
+ </article>
+
+ <article class="station" id="station04">
+  <div class="container station-grid">
+   <div><div class="station-num">04 // ESTRATEGIA</div><h3>Conectar<br>las piezas.</h3><p class="station-copy">Como microbots, cada iniciativa adquiere sentido al conectarse con las capacidades y retos detectados en el diagnóstico.</p><div class="strategy-tags"><span class="tag">FO // EXPANSIÓN</span><span class="tag">FA // RESILIENCIA</span><span class="tag">DO // DESARROLLO</span><span class="tag">DA // PROTECCIÓN</span></div></div>
+   <div class="panel"><div class="cards">
+    <div class="card"><strong>INNOVACIÓN</strong><p>Crear programas y prototipos interdisciplinarios orientados a retos concretos.</p></div>
+    <div class="card"><strong>INVESTIGACIÓN</strong><p>Fortalecer laboratorios, publicaciones, propiedad intelectual y colaboración.</p></div>
+    <div class="card"><strong>ECOSISTEMA</strong><p>Conectar estudiantes, industria, ciudad y comunidad mediante proyectos compartidos.</p></div>
+   </div></div>
+  </div>
+ </article>
+
+ <article class="station" id="station05">
+  <div class="container station-grid">
+   <div><div class="station-num">05 // ACCIÓN</div><h3>De la idea<br>a la acción.</h3><p class="station-copy">Un roadmap operativo convierte las líneas estratégicas en fases, responsables y entregables.</p></div>
+   <div class="panel">
+    <div class="timeline"><div class="timeline-line"></div><div class="timeline-progress"></div>
+     <div class="milestone"><div class="dot"></div><b>01 // DIAGNÓSTICO</b><h4>Entender el sistema</h4><p>Recolección de datos, capacidades, necesidades y prioridades.</p></div>
+     <div class="milestone"><div class="dot"></div><b>02 // DISEÑO ESTRATÉGICO</b><h4>Definir la arquitectura</h4><p>Portafolio de iniciativas, indicadores y responsables.</p></div>
+     <div class="milestone"><div class="dot"></div><b>03 // PILOTO</b><h4>Probar en pequeño</h4><p>Validación rápida de iniciativas de alto potencial.</p></div>
+     <div class="milestone"><div class="dot"></div><b>04 // IMPLEMENTACIÓN</b><h4>Escalar lo aprendido</h4><p>Recursos, alianzas y despliegue institucional.</p></div>
+     <div class="milestone"><div class="dot"></div><b>05 // EVALUACIÓN</b><h4>Medir el impacto</h4><p>Indicadores, retroalimentación y ajustes.</p></div>
+     <div class="milestone"><div class="dot"></div><b>06 // CONSOLIDACIÓN</b><h4>Hacerlo sostenible</h4><p>Integración de resultados al modelo institucional.</p></div>
+    </div>
+   </div>
+  </div>
+ </article>
+</section>
+
+<section class="campus">
+ <div class="container">
+  <div class="eyebrow">CAMPUS // INTERACTIVE SCAN</div>
+  <h2>Explora el<br><span style="color:var(--cyan)">instituto.</span></h2>
+  <p style="max-width:550px">Los puntos representan áreas clave del ecosistema SFIT. En escritorio usa hover; en móvil, toca cada punto.</p>
+  <div class="map" id="map">
+   <div class="map-campus"></div>
+   <button class="hotspot" style="left:30%;top:35%" data-name="ROBOTICS LAB" data-text="Centro de prototipado, microbots y proyectos de innovación aplicada."></button>
+   <button class="hotspot" style="left:63%;top:28%" data-name="CHEMISTRY LAB" data-text="Espacio de investigación y experimentación interdisciplinaria."></button>
+   <button class="hotspot" style="left:72%;top:59%" data-name="ENGINEERING WORKSHOP" data-text="Taller de ingeniería orientado a construir, probar y perfeccionar soluciones."></button>
+   <button class="hotspot" style="left:38%;top:66%" data-name="OPERATIONS CENTER" data-text="Coordinación de recursos, procesos y ejecución del plan estratégico."></button>
+   <button class="hotspot" style="left:52%;top:48%" data-name="STUDENT WELLNESS" data-text="Bienestar estudiantil y acompañamiento: tecnología al servicio de las personas."></button>
+   <div class="hotspot-panel" id="hotspotPanel"><b id="hotspotName">ROBOTICS LAB</b><p id="hotspotText"></p></div>
+  </div>
+ </div>
+</section>
+
+<section class="gallery">
+ <div class="container">
+  <div class="eyebrow">SFIT SYSTEMS // VISUAL INDEX</div>
+  <h2>Un campus<br>en movimiento.</h2>
+  <div class="gallery-grid" style="margin-top:45px">
+   <div class="gallery-item"><div class="gallery-label">01 // CAMPUS CORE</div></div>
+   <div class="gallery-item"><div class="gallery-label">02 // MICROBOT LAB</div></div>
+   <div class="gallery-item"><div class="gallery-label">03 // RESEARCH</div></div>
+   <div class="gallery-item"><div class="gallery-label">04 // ENGINEERING</div></div>
+   <div class="gallery-item"><div class="gallery-label">05 // CITY NETWORK</div></div>
+  </div>
+ </div>
+</section>
+
+<footer class="footer">
+ <div class="container">
+  <div class="eyebrow">STRATEGIC PLAN // 2026–2030</div>
+  <h2>La innovación importa<br>cuando <span style="color:var(--cyan)">sirve a las personas.</span></h2>
+  <p>SFIT conecta conocimiento, tecnología y comunidad para convertir pequeñas piezas en soluciones de mayor escala.</p>
+  <a href="#home" class="cta"><span>Volver al inicio del recorrido</span><span>↑</span></a>
+  <div class="footer-mark"><span>SFIT</span></div>
+ </div>
+</footer>
+</main>
+
+<script>
+/* =========================
+   CONTENIDO EDITABLE
+   Todo el texto estratégico principal puede mantenerse aquí.
+   ========================= */
+const SFIT_CONTENT = {
+  mission: "Formar talento tecnológico capaz de investigar, crear y convertir conocimiento en soluciones útiles.",
+  vision: "Ser un referente internacional de innovación interdisciplinaria con impacto humano.",
+  slogan: "Donde las ideas se convierten en héroes.",
+  plan: "STRATEGIC PLAN // 2026–2030",
+  stats: { students: 5000, labs: 24, programs: 18 }
+};
+
+gsap.registerPlugin(ScrollTrigger);
+
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const isTouch = matchMedia("(pointer: coarse)").matches;
+
+function intro(){
+  if(reduceMotion){ document.querySelector("#intro").remove(); return; }
+  const tl=gsap.timeline({onComplete:()=>document.querySelector("#intro").remove()});
+  tl.to(".intro-line",{scaleX:1,duration:.65,ease:"power2.out"})
+    .fromTo(".emblem",{opacity:0,scale:.75,rotation:-8},{opacity:1,scale:1,rotation:0,duration:.7,ease:"power3.out"})
+    .from(".intro-copy",{opacity:0,y:10,duration:.5,ease:"power2.out"})
+    .to("#intro",{opacity:0,duration:.7,delay:.35,ease:"power2.inOut"});
+}
+intro();
+
+gsap.utils.toArray(".reveal").forEach((el,i)=>{
+  if(reduceMotion)return;
+  gsap.fromTo(el,{opacity:0,y:28},{opacity:1,y:0,duration:.9,delay:i*.05,ease:"power3.out",scrollTrigger:{trigger:el,start:"top 88%"}});
+});
+
+if(!reduceMotion){
+  gsap.to(".light-sweep",{opacity:1,xPercent:55,duration:1.5,ease:"power2.inOut",scrollTrigger:{trigger:".transition",start:"top 80%",end:"bottom 45%",scrub:1}});
+  gsap.from(".transition-title",{opacity:0,y:35,duration:1,scrollTrigger:{trigger:".transition",start:"top 65%"}});
+  gsap.to(".building",{y:-25,scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:1}});
+  gsap.to(".skyline",{y:35,scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:1}});
+  gsap.to(".bridge",{y:55,scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:1.3}});
+  gsap.to(".grid",{y:30,scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:1}});
+  gsap.to(".timeline-progress",{height:"100%",ease:"none",scrollTrigger:{trigger:"#station05 .timeline",start:"top 70%",end:"bottom 70%",scrub:true}});
+  gsap.utils.toArray(".milestone").forEach(m=>{
+    gsap.from(m,{opacity:0,x:25,duration:.7,scrollTrigger:{trigger:m,start:"top 82%"}});
+    ScrollTrigger.create({trigger:m,start:"top 62%",end:"bottom 62%",onEnter:()=>m.classList.add("active"),onEnterBack:()=>m.classList.add("active"),onLeaveBack:()=>m.classList.remove("active")});
+  });
+}
+
+if(!isTouch && !reduceMotion){
+  const hero=document.querySelector(".hero");
+  hero.addEventListener("pointermove",e=>{
+    const x=(e.clientX/innerWidth-.5), y=(e.clientY/innerHeight-.5);
+    gsap.to(".building",{x:x*16,y:y*8,duration:.8,overwrite:true});
+    gsap.to(".skyline",{x:x*-10,y:y*-3,duration:1,overwrite:true});
+    gsap.to(".bridge",{x:x*7,duration:1,overwrite:true});
+  });
+}
+
+document.querySelectorAll(".progress button").forEach(btn=>{
+  btn.addEventListener("click",()=>document.getElementById(btn.dataset.target).scrollIntoView({behavior:reduceMotion?"auto":"smooth"}));
+});
+const stations=[...document.querySelectorAll(".station")];
+const progressButtons=[...document.querySelectorAll(".progress button")];
+stations.forEach((s,i)=>ScrollTrigger.create({trigger:s,start:"top 45%",end:"bottom 45%",onEnter:()=>setActive(i),onEnterBack:()=>setActive(i)}));
+function setActive(i){progressButtons.forEach((b,j)=>b.classList.toggle("active",i===j));}
+
+const panel=document.getElementById("hotspotPanel"), name=document.getElementById("hotspotName"), text=document.getElementById("hotspotText");
+document.querySelectorAll(".hotspot").forEach(h=>{
+  const open=()=>{document.querySelectorAll(".hotspot").forEach(x=>x.classList.remove("open"));h.classList.add("open");name.textContent=h.dataset.name;text.textContent=h.dataset.text;panel.classList.add("show");};
+  h.addEventListener("mouseenter",open); h.addEventListener("click",open);
+});
+document.getElementById("map").addEventListener("mouseleave",()=>{if(!isTouch)panel.classList.remove("show")});
+
+document.getElementById("soundBtn").addEventListener("click",e=>{
+  e.currentTarget.textContent=e.currentTarget.textContent.includes("OFF")?"SOUND // ON":"SOUND // OFF";
+});
+
+/* Cursor premium solo en escritorio */
+if(!isTouch && !reduceMotion){
+  const dot=document.createElement("div"), ring=document.createElement("div");
+  [dot,ring].forEach(x=>{x.style.position="fixed";x.style.pointerEvents="none";x.style.zIndex="120";x.style.borderRadius="50%";x.style.transform="translate(-50%,-50%)";});
+  dot.style.width="4px";dot.style.height="4px";dot.style.background="var(--cyan)";dot.style.boxShadow="0 0 12px var(--cyan)";
+  ring.style.width="25px";ring.style.height="25px";ring.style.border="1px solid rgba(34,217,255,.55)";
+  document.body.append(dot,ring);
+  addEventListener("pointermove",e=>{gsap.to(dot,{x:e.clientX,y:e.clientY,duration:.08});gsap.to(ring,{x:e.clientX,y:e.clientY,duration:.28,ease:"power2.out"});});
+  document.querySelectorAll("a,button,.hotspot,.gallery-item,.card").forEach(el=>{
+    el.addEventListener("mouseenter",()=>gsap.to(ring,{scale:1.7,duration:.2}));
+    el.addEventListener("mouseleave",()=>gsap.to(ring,{scale:1,duration:.2}));
+  });
+}
+
+addEventListener("load",()=>ScrollTrigger.refresh());
+</script>
+</body>
+</html>
