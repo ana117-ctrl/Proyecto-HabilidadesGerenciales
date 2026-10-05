@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SFIT — Strategic Plan 2026–2030">
+    <title>Organización | SFIT // Strategic Interface</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <div class="noise"></div>
+    <header class="nav">
+        <div class="container nav-inner"><a class="brand" href="index.html" aria-label="SFIT — Inicio"><i></i>SFIT //
+                001</a>
+            <nav class="main-nav" aria-label="Navegación principal"><a href="index.html" class="nav-link">Inicio</a>
+                <div class="nav-group"><button class="nav-link nav-trigger current" type="button"
+                        aria-expanded="false">Organización <span>⌄</span></button>
+                    <div class="nav-dropdown nav-dropdown-wide"><a
+                            href="organizacion.html#org-structure"><b>2.1</b>Nuestra estructura</a><a
+                            href="organizacion.html#org-areas"><b>2.2</b>Nuestras áreas</a><a
+                            href="organizacion.html#org-team"><b>2.3</b>Nuestro equipo</a></div>
+                </div>
+                <div class="nav-group"><button class="nav-link nav-trigger" type="button" aria-expanded="false">Nuestra
+                        forma de trabajar <span>⌄</span></button>
+                    <div class="nav-dropdown nav-dropdown-wide"><a
+                            href="forma-de-trabajar.html#culture"><b>3.1</b>Nuestra cultura de trabajo</a><a
+                            href="forma-de-trabajar.html#leadership"><b>3.2</b>Cómo lideramos</a><a
+                            href="forma-de-trabajar.html#communication"><b>3.3</b>Cómo nos comunicamos</a><a
+                            href="forma-de-trabajar.html#team-drive"><b>3.4</b>Cómo impulsamos a nuestro equipo</a><a
+                            href="forma-de-trabajar.html#teamwork"><b>3.5</b>Trabajamos en equipo</a></div>
+                </div>
+                <div class="nav-group"><button class="nav-link nav-trigger" type="button" aria-expanded="false">Nuestro
+                        compromiso <span>⌄</span></button>
+                    <div class="nav-dropdown nav-dropdown-wide"><a href="compromiso.html#standards"><b>4.1</b>Nuestros
+                            estándares</a><a href="compromiso.html#results"><b>4.2</b>Medimos nuestros resultados</a><a
+                            href="compromiso.html#improvement"><b>4.3</b>Seguimiento y mejora</a></div>
+                </div>
+            </nav>
+            <div class="nav-tools">
+                <div class="status">CAMPUS SYSTEMS // <b>ONLINE</b></div><button class="sound" id="soundBtn">SOUND //
+                    OFF</button>
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú"
+                    aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+    <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile-menu-head"><span class="mono">SFIT // NAVIGATION</span><button id="menuClose" type="button"
+                aria-label="Cerrar menú">×</button></div>
+        <a href="index.html" class="mobile-link">1. Inicio</a>
+        <div class="mobile-group">
+            <div class="mobile-title">2. Organización</div><a href="organizacion.html#org-structure">2.1. Nuestra
+                estructura</a><a href="organizacion.html#org-areas">2.2. Nuestras áreas</a><a
+                href="organizacion.html#org-team">2.3. Nuestro equipo</a>
+        </div>
+        <div class="mobile-group">
+            <div class="mobile-title">3. Nuestra forma de trabajar</div><a href="forma-de-trabajar.html#culture">3.1.
+                Nuestra cultura de trabajo</a><a href="forma-de-trabajar.html#leadership">3.2. Cómo lideramos</a><a
+                href="forma-de-trabajar.html#communication">3.3. Cómo nos comunicamos</a><a
+                href="forma-de-trabajar.html#team-drive">3.4. Cómo impulsamos a nuestro equipo</a><a
+                href="forma-de-trabajar.html#teamwork">3.5. Trabajamos en equipo</a>
+        </div>
+        <div class="mobile-group">
+            <div class="mobile-title">4. Nuestro compromiso</div><a href="compromiso.html#standards">4.1. Nuestros
+                estándares</a><a href="compromiso.html#results">4.2. Medimos nuestros resultados</a><a
+                href="compromiso.html#improvement">4.3. Seguimiento y mejora</a>
+        </div>
+    </aside>
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <div class="eyebrow">02 // ORGANIZACIÓN</div>
+                <h2>Una estructura<br><span style='color:var(--cyan)'>que conecta.</span></h2>
+                <p>Quiénes somos, cómo se distribuyen nuestras capacidades y qué responsabilidades sostienen la
+                    operación. Todo el contenido es editable.</p>
+                <div class="subnav"><a href="#org-structure"><b>2.1</b>Nuestra estructura</a><a
+                        href="#org-areas"><b>2.2</b>Nuestras áreas</a><a href="#org-team"><b>2.3</b>Nuestro equipo</a>
+                </div>
+            </div>
+        </section>
+        <section class="org-section">
+            <div class="container">
+                <article class="submodule" id="org-structure">
+                    <div class="submodule-head">
+                        <div>
+                            <div class="submodule-index">2.1 // NUESTRA ESTRUCTURA</div>
+                            <h3>Organigrama</h3>
+                        </div>
+                        <p class="submodule-intro">Estructura institucional de SFIT: Rectoría, dos direcciones,
+                            jefaturas y coordinaciones.</p>
+                    </div>
+                    <div class="panel reveal">
+                        <div class="tree-legend"><span class="l0">Rectoría</span><span
+                                class="l1">Direcciones</span><span class="l2">Jefaturas</span><span
+                                class="l3">Coordinaciones</span><span class="l4">Docentes / Atención</span><span
+                                class="l5">Apoyo</span></div>
+                        <div class="tree-scroll">
+                            <div class="tree">
+                                <ul>
+                                    <li>
+                                        <div class="nd l0">Rectoría</div>
+                                        <ul>
+                                            <li>
+                                                <div class="nd l1">Dirección académica</div>
+                                                <ul>
+                                                    <li>
+                                                        <div class="nd l2">Jefatura de Comunicación y Difusión
+                                                            Científica</div>
+                                                        <ul>
+                                                            <li>
+                                                                <div class="nd l3">Coord. de Exposición Científica Anual
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <div class="nd l2">Jefatura de Asuntos Jurídicos</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="nd l3">Coord. de Robótica</div>
+                                                        <ul>
+                                                            <li>
+                                                                <div class="nd l4">Docentes de asignatura</div>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <div class="nd l3">Coord. de Nanotecnología</div>
+                                                        <ul>
+                                                            <li>
+                                                                <div class="nd l4">Docentes de asignatura</div>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <div class="nd l3">Coord. de IA y Sistemas autónomos</div>
+                                                        <ul>
+                                                            <li>
+                                                                <div class="nd l4">Docentes de asignatura</div>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <div class="nd l3">Coord. de idiomas</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="nd l3">Coord. de Biblioteca</div>
+                                                        <ul>
+                                                            <li>
+                                                                <div class="nd l4">Oficina de atención estudiantil</div>
+                                                                <ul>
+                                                                    <li>
+                                                                        <div class="nd l5">Psicología</div>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <div class="nd l1">Dirección de Administración y Finanzas</div>
+                                                <ul>
+                                                    <li>
+                                                        <div class="nd l2">Jefatura de Planeación y Estadística</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="nd l2">Jefatura de Infraestructura y Seguridad del
+                                                            campus</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="nd l2">Jefatura de Control Escolar</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="nd l2">Jefatura de Recursos Humanos</div>
+                                                        <ul>
+                                                            <li>
+                                                                <div class="nd l3">Coord. de Área de Redes (TI)</div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="nd l3">Coord. de Área de Contabilidad</div>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="submodule" id="org-areas">
+                    <div class="submodule-head">
+                        <div>
+                            <div class="submodule-index">2.2 // NUESTRAS ÁREAS</div>
+                            <h3>Capacidades clave</h3>
+                        </div>
+                        <p class="submodule-intro">Departamentos principales de ejemplo y su contribución al propósito
+                            institucional.</p>
+                    </div>
+                    <div class="area-grid">
+                        <div class="info-card reveal"><span class="code">AREA // 01</span>
+                            <h4>Innovación & I+D</h4>
+                            <p>Investiga tendencias, convierte necesidades en oportunidades y coordina prototipos de
+                                alto potencial.</p>
+                        </div>
+                        <div class="info-card reveal"><span class="code">AREA // 02</span>
+                            <h4>Operaciones</h4>
+                            <p>Diseña procesos, administra recursos y asegura que las iniciativas se ejecuten con
+                                consistencia.</p>
+                        </div>
+                        <div class="info-card reveal"><span class="code">AREA // 03</span>
+                            <h4>Personas & Cultura</h4>
+                            <p>Impulsa desarrollo, bienestar, reconocimiento y una cultura alineada con los objetivos.
+                            </p>
+                        </div>
+                        <div class="info-card reveal"><span class="code">AREA // 04</span>
+                            <h4>Tecnología</h4>
+                            <p>Gestiona plataformas, datos, ciberseguridad y herramientas que habilitan el trabajo.</p>
+                        </div>
+                        <div class="info-card reveal"><span class="code">AREA // 05</span>
+                            <h4>Experiencia</h4>
+                            <p>Conecta las necesidades de usuarios con el diseño y evolución de productos y servicios.
+                            </p>
+                        </div>
+                        <div class="info-card reveal"><span class="code">AREA // 06</span>
+                            <h4>Finanzas & Control</h4>
+                            <p>Administra presupuesto, indicadores económicos y mecanismos de control.</p>
+                        </div>
+                    </div>
+                </article>
+
+
+                <article class="submodule" id="org-team">
+                    <div class="submodule-head">
+                        <div>
+                            <div class="submodule-index">2.3 // NUESTRO EQUIPO</div>
+                            <h3>Roles que hacen avanzar</h3>
+                        </div>
+                        <p class="submodule-intro">Puestos clave, funciones y responsabilidades representativas en el instituto.</p>
+                    </div>
+                    <div class="area-grid">
+                        <div class="info-card reveal">
+                            <div class="role">
+                                <div class="role-num">01</div>
+                                <div><strong>Rectoría</strong><span>Profesor Robert Callaghan: Figura más reconocida de la robótica en SFIT. Encabeza la visión académica del instituto y respalda el desarrollo de los proyectos más prometedores de sus estudiantes.</span></div>
+                            </div>
+                        </div>
+                        <div class="info-card reveal">
+                            <div class="role">
+                                <div class="role-num">02</div>
+                                <div><strong>Coordinación de Robótica Aplicada</strong><span>Alisteir Krei: Lidera el desarrollo de proyectos de robótica asistencial, incluido el prototipo del robot de salud Baymax, y guía a los nuevos estudiantes del programa.</span></div>
+                            </div>
+                        </div>
+                        <div class="info-card reveal">
+                            <div class="role">
+                                <div class="role-num">03</div>
+                                <div><strong>Coordinación de Nanotecnología</strong><span>Hiro Hamada: Encabeza el desarrollo de materiales y sistemas de propulsión de alto rendimiento.</span></div>
+                            </div>
+                        </div>
+                        <div class="info-card reveal">
+                            <div class="role">
+                                <div class="role-num">04</div>
+                                <div><strong>Comunicación y Difusión Científica</strong><span>Fred: Encargado de la imagen y el entusiasmo institucional en los eventos públicos del instituto y la coordinación de la exposición científica anual.</span></div>
+                            </div>
+                        </div>
+                        <div class="info-card reveal">
+                            <div class="role">
+                                <div class="role-num">05</div>
+                                <div><strong>Atención Estudiantil / Psicología</strong><span>Baymax: Robot de salud personal que brinda atención médica y emocional inmediata a los estudiantes, cumpliendo fielmente el propósito con el que fue creado por Tadashi.</span></div>
+                            </div>
+                        </div>
+                        <div class="info-card reveal">
+                            <div class="role">
+                                <div class="role-num">06</div>
+                                <div><strong>Áreas Administrativas y de Soporte</strong><span>Jefaturas operadas por el personal académico y administrativo (Asuntos Jurídicos, Control Escolar, Recursos Humanos, Redes, Contabilidad, Infraestructura y Seguridad) que mantienen en funcionamiento la vida diaria del instituto.</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+
+
+            </div>
+        </section>
+
+
+
+
+        <div class="container pager"><a href="index.html"><small>← ANTERIOR</small><strong>Inicio</strong></a><a
+                href="forma-de-trabajar.html"><small>SIGUIENTE →</small><strong>Nuestra forma de trabajar</strong></a>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

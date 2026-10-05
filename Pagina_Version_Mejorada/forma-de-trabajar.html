@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SFIT — Strategic Plan 2026–2030">
+    <title>Nuestra forma de trabajar | SFIT // Strategic Interface</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <div class="noise"></div>
+    <header class="nav">
+        <div class="container nav-inner"><a class="brand" href="index.html" aria-label="SFIT — Inicio"><i></i>SFIT //
+                001</a>
+            <nav class="main-nav" aria-label="Navegación principal"><a href="index.html" class="nav-link">Inicio</a>
+                <div class="nav-group"><button class="nav-link nav-trigger" type="button"
+                        aria-expanded="false">Organización <span>⌄</span></button>
+                    <div class="nav-dropdown nav-dropdown-wide"><a
+                            href="organizacion.html#org-structure"><b>2.1</b>Nuestra estructura</a><a
+                            href="organizacion.html#org-areas"><b>2.2</b>Nuestras áreas</a><a
+                            href="organizacion.html#org-team"><b>2.3</b>Nuestro equipo</a></div>
+                </div>
+                <div class="nav-group"><button class="nav-link nav-trigger current" type="button"
+                        aria-expanded="false">Nuestra forma de trabajar <span>⌄</span></button>
+                    <div class="nav-dropdown nav-dropdown-wide"><a
+                            href="forma-de-trabajar.html#culture"><b>3.1</b>Nuestra cultura de trabajo</a><a
+                            href="forma-de-trabajar.html#leadership"><b>3.2</b>Cómo lideramos</a><a
+                            href="forma-de-trabajar.html#communication"><b>3.3</b>Cómo nos comunicamos</a><a
+                            href="forma-de-trabajar.html#team-drive"><b>3.4</b>Cómo impulsamos a nuestro equipo</a><a
+                            href="forma-de-trabajar.html#teamwork"><b>3.5</b>Trabajamos en equipo</a></div>
+                </div>
+                <div class="nav-group"><button class="nav-link nav-trigger" type="button" aria-expanded="false">Nuestro
+                        compromiso <span>⌄</span></button>
+                    <div class="nav-dropdown nav-dropdown-wide"><a href="compromiso.html#standards"><b>4.1</b>Nuestros
+                            estándares</a><a href="compromiso.html#results"><b>4.2</b>Medimos nuestros resultados</a><a
+                            href="compromiso.html#improvement"><b>4.3</b>Seguimiento y mejora</a></div>
+                </div>
+            </nav>
+            <div class="nav-tools">
+                <div class="status">CAMPUS SYSTEMS // <b>ONLINE</b></div><button class="sound" id="soundBtn">SOUND //
+                    OFF</button>
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú"
+                    aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+    <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile-menu-head"><span class="mono">SFIT // NAVIGATION</span><button id="menuClose" type="button"
+                aria-label="Cerrar menú">×</button></div>
+        <a href="index.html" class="mobile-link">1. Inicio</a>
+        <div class="mobile-group">
+            <div class="mobile-title">2. Organización</div><a href="organizacion.html#org-structure">2.1. Nuestra
+                estructura</a><a href="organizacion.html#org-areas">2.2. Nuestras áreas</a><a
+                href="organizacion.html#org-team">2.3. Nuestro equipo</a>
+        </div>
+        <div class="mobile-group">
+            <div class="mobile-title">3. Nuestra forma de trabajar</div><a href="forma-de-trabajar.html#culture">3.1.
+                Nuestra cultura de trabajo</a><a href="forma-de-trabajar.html#leadership">3.2. Cómo lideramos</a><a
+                href="forma-de-trabajar.html#communication">3.3. Cómo nos comunicamos</a><a
+                href="forma-de-trabajar.html#team-drive">3.4. Cómo impulsamos a nuestro equipo</a><a
+                href="forma-de-trabajar.html#teamwork">3.5. Trabajamos en equipo</a>
+        </div>
+        <div class="mobile-group">
+            <div class="mobile-title">4. Nuestro compromiso</div><a href="compromiso.html#standards">4.1. Nuestros
+                estándares</a><a href="compromiso.html#results">4.2. Medimos nuestros resultados</a><a
+                href="compromiso.html#improvement">4.3. Seguimiento y mejora</a>
+        </div>
+    </aside>
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <div class="eyebrow">03 // NUESTRA FORMA DE TRABAJAR</div>
+                <h2>El método<br><span style='color:var(--cyan)'>importa.</span></h2>
+                <p>En el Instituto Tecnológico de San Fransokyo, la innovación, la colaboración y la comunicación
+                    abierta guían cómo lideramos, nos comunicamos, nos motivamos y trabajamos en equipo.</p>
+                <div class="subnav"><a href="#culture"><b>3.1</b>Nuestra cultura de trabajo</a><a
+                        href="#leadership"><b>3.2</b>Cómo lideramos</a><a href="#communication"><b>3.3</b>Cómo nos
+                        comunicamos</a><a href="#team-drive"><b>3.4</b>Cómo impulsamos a nuestro equipo</a><a
+                        href="#teamwork"><b>3.5</b>Trabajamos en equipo</a></div>
+            </div>
+        </section>
+        <section class="org-section">
+            <div class="container">
+                <article class="submodule" id="culture">
+                    <div class="submodule-head">
+                        <div>
+                            <div class="submodule-index">3.1 // NUESTRA CULTURA DE TRABAJO</div>
+                            <h3>Innovación con propósito</h3>
+                        </div>
+                        <p class="submodule-intro">El Instituto Tecnológico de San Fransokyo desarrolla una cultura de
+                            trabajo basada en la innovación, colaboración, empatía y responsabilidad, donde directivos,
+                            docentes, investigadores y estudiantes participan activamente en el desarrollo de
+                            soluciones tecnológicas.</p>
+                    </div>
+                    <div class="area-grid">
+                        <div class="info-card reveal"><span class="code">01 // CREATIVIDAD</span>
+                            <h4>Innovación</h4>
+                            <p>Impulsamos nuevas ideas y soluciones tecnológicas desde todos los niveles de la
+                                comunidad.</p>
+                        </div>
+                        <div class="info-card reveal"><span class="code">02 // COMUNIDAD</span>
+                            <h4>Colaboración</h4>
+                            <p>Directivos, docentes, investigadores y estudiantes participan activamente y avanzan
+                                juntos.</p>
+                        </div>
+                        <div class="info-card reveal"><span class="code">03 // PERSONAS</span>
+                            <h4>Empatía</h4>
+                            <p>Entendemos las necesidades y puntos de vista de cada integrante del instituto.</p>
+                        </div>
+                        <div class="info-card reveal"><span class="code">04 // COMPROMISO</span>
+                            <h4>Responsabilidad</h4>
+                            <p>Cada persona asume su papel en el desarrollo de soluciones tecnológicas con seriedad y
+                                compromiso.</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="submodule" id="leadership">
+                    <div class="submodule-head">
+                        <div>
+                            <div class="submodule-index">3.2 // CÓMO LIDERAMOS</div>
+                            <h3>Liderazgo participativo</h3>
+                        </div>
+                        <p class="submodule-intro">El liderazgo del instituto es de tipo participativo y orientado a la
+                            innovación. Los directivos y responsables de cada área:</p>
+                    </div>
+                    <div class="panel">
+                        <div class="flow">
+                            <div class="flow-step reveal"><b>01 // ESCUCHAR</b><span>Atienden las propuestas de
+                                    estudiantes, docentes e investigadores.</span></div>
+                            <div class="flow-step reveal"><b>02 // INICIATIVA</b><span>Promueven la iniciativa y la
+                                    creatividad.</span></div>
+                            <div class="flow-step reveal"><b>03 // DELEGAR</b><span>Asignan responsabilidades de
+                                    acuerdo con las capacidades de cada integrante.</span></div>
+                            <div class="flow-step reveal"><b>04 // DECIDIR</b><span>Toman decisiones considerando las
+                                    necesidades de los equipos.</span></div>
+                            <div class="flow-step reveal"><b>05 // SUPERVISAR</b><span>Supervisan el cumplimiento de
+                                    objetivos sin limitar la creatividad.</span></div>
+                            <div class="flow-step reveal"><b>06 // COMPETIR</b><span>Fomentan una competencia sana y
+                                    responsable.</span></div>
+                        </div>
+                    </div>
+                </article>
+                <article class="submodule" id="communication">
+                    <div class="submodule-head">
+                        <div>
+                            <div class="submodule-index">3.3 // CÓMO NOS COMUNICAMOS</div>
+                            <h3>Comunicación abierta</h3>
+                        </div>
+                        <p class="submodule-intro">La comunicación es abierta, clara y multidireccional, permitiendo
+                            que la información fluya entre dirección, departamentos, docentes, investigadores y
+                            estudiantes. Para ello se implementan:</p>
+                    </div>
+                    <div class="area-grid">
+                        <div class="info-card reveal"><span class="code">CANAL // 01</span>
+                            <h4>Reuniones periódicas</h4>
+                            <p>Encuentros regulares entre los responsables de cada área.</p>
+                        </div>
+                        <div class="info-card reveal"><span class="code">CANAL // 02</span>
+                            <h4>Canales digitales</h4>
+                            <p>Medios para compartir información y avances de manera ágil.</p>
+                        </div>
+                        <div class="info-card reveal"><span class="code">CANAL // 03</span>
+                            <h4>Presentaciones de proyectos</h4>
+                            <p>Presentaciones periódicas para dar visibilidad al trabajo realizado.</p>
+                        </div>
+                        <div class="info-card reveal"><span class="code">CANAL // 04</span>
+                            <h4>Sugerencias y propuestas</h4>
+                            <p>Espacios para recibir sugerencias y propuestas de toda la comunidad.</p>
+                        </div>
+                        <div class="info-card reveal"><span class="code">CANAL // 05</span>
+                            <h4>Reportes de avances</h4>
+                            <p>Reportes de avances y resultados para dar seguimiento al trabajo.</p>
+                        </div>
+                        <div class="info-card reveal"><span class="code">CANAL // 06</span>
+                            <h4>Comunicación directa</h4>
+                            <p>Contacto directo entre equipos interdisciplinarios.</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="submodule" id="team-drive">
+                    <div class="submodule-head">
+                        <div>
+                            <div class="submodule-index">3.4 // CÓMO IMPULSAMOS A NUESTRO EQUIPO</div>
+                            <h3>Motivar para avanzar</h3>
+                        </div>
+                        <p class="submodule-intro">La institución motiva a sus integrantes mediante el reconocimiento,
+                            las oportunidades de desarrollo y la participación en proyectos innovadores. Para ello se
+                            utilizan:</p>
+                    </div>
+                    <div class="standard-grid">
+                        <div class="panel reveal">
+                            <div class="standard-list">
+                                <div class="standard-item"><b>RECONOCIMIENTO</b>
+                                    <p>Reconocimientos a proyectos destacados.</p>
+                                </div>
+                                <div class="standard-item"><b>FINANCIAMIENTO</b>
+                                    <p>Financiamiento para proyectos con potencial.</p>
+                                </div>
+                                <div class="standard-item"><b>CONCURSOS</b>
+                                    <p>Concursos tecnológicos.</p>
+                                </div>
+                                <div class="standard-item"><b>INVESTIGACIÓN</b>
+                                    <p>Oportunidades de participar en investigaciones.</p>
+                                </div>
+                                <div class="standard-item"><b>CAPACITACIÓN</b>
+                                    <p>Capacitación en nuevas tecnologías.</p>
+                                </div>
+                                <div class="standard-item"><b>VINCULACIÓN</b>
+                                    <p>Participación en proyectos con empresas.</p>
+                                </div>
+                                <div class="standard-item"><b>LOGROS</b>
+                                    <p>Reconocimiento de logros académicos y tecnológicos.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel reveal">
+                            <div class="eyebrow">TEAM PULSE // SFIT</div>
+                            <h4 style="font:500 28px 'Space Grotesk';margin:0 0 12px">“Motivamos mediante el
+                                reconocimiento, el desarrollo y la participación en proyectos innovadores.”</h4>
+                            <p style="font-size:11px;margin:0">Instituto Tecnológico de San Fransokyo.</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="submodule" id="teamwork">
+                    <div class="submodule-head">
+                        <div>
+                            <div class="submodule-index">3.5 // TRABAJAMOS EN EQUIPO</div>
+                            <h3>Colaboración interdisciplinaria</h3>
+                        </div>
+                        <p class="submodule-intro">Se fomenta el trabajo colaborativo e interdisciplinario,
+                            integrando estudiantes, docentes e investigadores de diferentes áreas. Los equipos pueden:
+                        </p>
+                    </div>
+                    <div class="flow">
+                        <div class="flow-step reveal"><b>01 // COMBINAR</b><span>Combinar conocimientos de diferentes
+                                ingenierías.</span></div>
+                        <div class="flow-step reveal"><b>02 // DESARROLLAR</b><span>Desarrollar proyectos
+                                multidisciplinarios.</span></div>
+                        <div class="flow-step reveal"><b>03 // COMPARTIR</b><span>Compartir recursos y
+                                conocimientos.</span></div>
+                        <div class="flow-step reveal"><b>04 // ASIGNAR</b><span>Asignar responsabilidades según las
+                                habilidades de cada integrante.</span></div>
+                        <div class="flow-step reveal"><b>05 // RESOLVER</b><span>Resolver problemas de manera
+                                conjunta.</span></div>
+                        <div class="flow-step reveal"><b>06 // PRESENTAR</b><span>Presentar proyectos ante la
+                                comunidad y empresas.</span></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <div class="container pager"><a href="organizacion.html"><small>←
+                    ANTERIOR</small><strong>Organización</strong></a><a href="compromiso.html"><small>SIGUIENTE
+                    →</small><strong>Nuestro compromiso</strong></a></div>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

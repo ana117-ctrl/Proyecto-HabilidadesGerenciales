@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SFIT — Strategic Plan 2026–2030">
+    <title>Nuestro compromiso | SFIT // Strategic Interface</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <div class="noise"></div>
+    <header class="nav">
+        <div class="container nav-inner"><a class="brand" href="index.html" aria-label="SFIT — Inicio"><i></i>SFIT //
+                001</a>
+            <nav class="main-nav" aria-label="Navegación principal"><a href="index.html" class="nav-link">Inicio</a>
+                <div class="nav-group"><button class="nav-link nav-trigger" type="button"
+                        aria-expanded="false">Organización <span>⌄</span></button>
+                    <div class="nav-dropdown nav-dropdown-wide"><a
+                            href="organizacion.html#org-structure"><b>2.1</b>Nuestra estructura</a><a
+                            href="organizacion.html#org-areas"><b>2.2</b>Nuestras áreas</a><a
+                            href="organizacion.html#org-team"><b>2.3</b>Nuestro equipo</a></div>
+                </div>
+                <div class="nav-group"><button class="nav-link nav-trigger" type="button" aria-expanded="false">Nuestra
+                        forma de trabajar <span>⌄</span></button>
+                    <div class="nav-dropdown nav-dropdown-wide"><a
+                            href="forma-de-trabajar.html#culture"><b>3.1</b>Nuestra cultura de trabajo</a><a
+                            href="forma-de-trabajar.html#leadership"><b>3.2</b>Cómo lideramos</a><a
+                            href="forma-de-trabajar.html#communication"><b>3.3</b>Cómo nos comunicamos</a><a
+                            href="forma-de-trabajar.html#team-drive"><b>3.4</b>Cómo impulsamos a nuestro equipo</a><a
+                            href="forma-de-trabajar.html#teamwork"><b>3.5</b>Trabajamos en equipo</a></div>
+                </div>
+                <div class="nav-group"><button class="nav-link nav-trigger current" type="button"
+                        aria-expanded="false">Nuestro compromiso <span>⌄</span></button>
+                    <div class="nav-dropdown nav-dropdown-wide"><a href="compromiso.html#standards"><b>4.1</b>Nuestros
+                            estándares</a><a href="compromiso.html#results"><b>4.2</b>Medimos nuestros resultados</a><a
+                            href="compromiso.html#improvement"><b>4.3</b>Seguimiento y mejora</a></div>
+                </div>
+            </nav>
+            <div class="nav-tools">
+                <div class="status">CAMPUS SYSTEMS // <b>ONLINE</b></div><button class="sound" id="soundBtn">SOUND //
+                    OFF</button>
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú"
+                    aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+    <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile-menu-head"><span class="mono">SFIT // NAVIGATION</span><button id="menuClose" type="button"
+                aria-label="Cerrar menú">×</button></div>
+        <a href="index.html" class="mobile-link">1. Inicio</a>
+        <div class="mobile-group">
+            <div class="mobile-title">2. Organización</div><a href="organizacion.html#org-structure">2.1. Nuestra
+                estructura</a><a href="organizacion.html#org-areas">2.2. Nuestras áreas</a><a
+                href="organizacion.html#org-team">2.3. Nuestro equipo</a>
+        </div>
+        <div class="mobile-group">
+            <div class="mobile-title">3. Nuestra forma de trabajar</div><a href="forma-de-trabajar.html#culture">3.1.
+                Nuestra cultura de trabajo</a><a href="forma-de-trabajar.html#leadership">3.2. Cómo lideramos</a><a
+                href="forma-de-trabajar.html#communication">3.3. Cómo nos comunicamos</a><a
+                href="forma-de-trabajar.html#team-drive">3.4. Cómo impulsamos a nuestro equipo</a><a
+                href="forma-de-trabajar.html#teamwork">3.5. Trabajamos en equipo</a>
+        </div>
+        <div class="mobile-group">
+            <div class="mobile-title">4. Nuestro compromiso</div><a href="compromiso.html#standards">4.1. Nuestros
+                estándares</a><a href="compromiso.html#results">4.2. Medimos nuestros resultados</a><a
+                href="compromiso.html#improvement">4.3. Seguimiento y mejora</a>
+        </div>
+    </aside>
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <div class="eyebrow">04 // NUESTRO COMPROMISO</div>
+                <h2>Medir.<br>Aprender.<br><span style='color:var(--cyan)'>Mejorar.</span></h2>
+                <p>En el Instituto Tecnológico de San Fransokyo trabajamos para mantener altos estándares de calidad,
+                    innovación, seguridad y desarrollo tecnológico, evaluando nuestros resultados para identificar
+                    oportunidades de mejora continua.</p>
+                <div class="subnav"><a href="#standards"><b>4.1</b>Nuestros estándares</a><a
+                        href="#results"><b>4.2</b>Medimos nuestros resultados</a><a
+                        href="#improvement"><b>4.3</b>Seguimiento y mejora</a></div>
+            </div>
+        </section>
+        <section class="org-section">
+            <div class="container">
+                <article class="submodule" id="standards">
+                    <div class="submodule-head">
+                        <div>
+                            <div class="submodule-index">4.1 // NUESTROS ESTÁNDARES</div>
+                            <h3>Altos estándares</h3>
+                        </div>
+                        <p class="submodule-intro">Cinco principios que guían nuestros proyectos, nuestra comunidad y
+                            nuestro desarrollo tecnológico.</p>
+                    </div>
+                    <div class="standard-grid">
+                        <div class="panel reveal">
+                            <div class="standard-list">
+                                <div class="standard-item"><b>INNOVACIÓN</b>
+                                    <p>Impulsamos proyectos y soluciones tecnológicas que respondan a necesidades
+                                        reales.</p>
+                                </div>
+                                <div class="standard-item"><b>CALIDAD</b>
+                                    <p>Buscamos que nuestros proyectos cumplan con criterios de funcionalidad,
+                                        rendimiento y confiabilidad.</p>
+                                </div>
+                                <div class="standard-item"><b>SEGURIDAD</b>
+                                    <p>Promovemos el cumplimiento de protocolos para proteger a estudiantes,
+                                        colaboradores e instalaciones.</p>
+                                </div>
+                                <div class="standard-item"><b>COLABORACIÓN</b>
+                                    <p>Fomentamos el trabajo interdisciplinario y el intercambio de conocimientos.</p>
+                                </div>
+                                <div class="standard-item"><b>DESARROLLO</b>
+                                    <p>Promovemos oportunidades de aprendizaje, investigación y vinculación con el
+                                        sector tecnológico.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel reveal">
+                            <div class="eyebrow">COMPROMISO // SFIT</div>
+                            <h4 style="font:500 30px 'Space Grotesk';margin:0 0 12px">Calidad, innovación y seguridad
+                            </h4>
+                            <p style="font-size:11px">Evaluamos nuestros resultados para identificar oportunidades de
+                                mejora continua.</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="submodule" id="results">
+                    <div class="submodule-head">
+                        <div>
+                            <div class="submodule-index">4.2 // MEDIMOS NUESTROS RESULTADOS</div>
+                            <h3>Indicadores clave</h3>
+                        </div>
+                        <p class="submodule-intro">Evaluamos nuestro desempeño mediante indicadores que permiten conocer
+                            el avance de nuestros objetivos.</p>
+                    </div>
+                    <div class="panel reveal">
+                        <div class="kpi-panel">
+                            <div class="kpi"><strong>+20%</strong><span>Proyectos tecnológicos por ciclo
+                                    escolar</span></div>
+                            <div class="kpi"><strong>10+</strong><span>Proyectos de desarrollo tecnológico al año
+                                    (Investigación)</span></div>
+                            <div class="kpi"><strong>5+</strong><span>Convenios con empresas en 12 meses
+                                    (Vinculación)</span></div>
+                        </div>
+                        <div class="commitment-bar"><span>OTROS INDICADORES // SEGUIMIENTO</span>
+                            <p><b>Proyectos interdisciplinarios:</b> seguimiento de proyectos registrados y prototipos
+                                desarrollados. <b>Seguridad:</b> seguimiento de inspecciones, protocolos e incidentes.
+                                Los primeros tres indicadores corresponden directamente a los objetivos establecidos
+                                en nuestra planeación estratégica.</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="submodule" id="improvement">
+                    <div class="submodule-head">
+                        <div>
+                            <div class="submodule-index">4.3 // SEGUIMIENTO Y MEJORA</div>
+                            <h3>Ciclo continuo</h3>
+                        </div>
+                        <p class="submodule-intro">Un ciclo de cuatro pasos para revisar, aprender y mejorar de manera
+                            continua.</p>
+                    </div>
+                    <div class="improvement-loop">
+                        <div class="loop-step reveal">
+                            <h4>01 — Evaluamos</h4>
+                            <p>Revisamos periódicamente nuestros indicadores y resultados.</p>
+                        </div>
+                        <div class="loop-step reveal">
+                            <h4>02 — Identificamos</h4>
+                            <p>Detectamos avances, dificultades y áreas de oportunidad.</p>
+                        </div>
+                        <div class="loop-step reveal">
+                            <h4>03 — Actuamos</h4>
+                            <p>Implementamos acciones correctivas y de mejora.</p>
+                        </div>
+                        <div class="loop-step reveal">
+                            <h4>04 — Damos seguimiento</h4>
+                            <p>Comprobamos los resultados de las acciones implementadas y ajustamos los procesos
+                                cuando sea necesario.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <div class="container pager"><a href="forma-de-trabajar.html"><small>← ANTERIOR</small><strong>Nuestra forma de
+                    trabajar</strong></a><a href="index.html"><small>SIGUIENTE →</small><strong>Inicio</strong></a>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

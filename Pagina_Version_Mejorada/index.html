@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SFIT — Strategic Plan 2026–2030">
+    <title>Inicio | SFIT // Strategic Interface</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <div class="noise"></div>
+    <header class="nav">
+        <div class="container nav-inner"><a class="brand" href="index.html" aria-label="SFIT — Inicio"><i></i>SFIT //
+                001</a>
+            <nav class="main-nav" aria-label="Navegación principal"><a href="index.html"
+                    class="nav-link current">Inicio</a>
+                <div class="nav-group"><button class="nav-link nav-trigger" type="button"
+                        aria-expanded="false">Organización <span>⌄</span></button>
+                    <div class="nav-dropdown nav-dropdown-wide"><a
+                            href="organizacion.html#org-structure"><b>2.1</b>Nuestra estructura</a><a
+                            href="organizacion.html#org-areas"><b>2.2</b>Nuestras áreas</a><a
+                            href="organizacion.html#org-team"><b>2.3</b>Nuestro equipo</a></div>
+                </div>
+                <div class="nav-group"><button class="nav-link nav-trigger" type="button" aria-expanded="false">Nuestra
+                        forma de trabajar <span>⌄</span></button>
+                    <div class="nav-dropdown nav-dropdown-wide"><a
+                            href="forma-de-trabajar.html#culture"><b>3.1</b>Nuestra cultura de trabajo</a><a
+                            href="forma-de-trabajar.html#leadership"><b>3.2</b>Cómo lideramos</a><a
+                            href="forma-de-trabajar.html#communication"><b>3.3</b>Cómo nos comunicamos</a><a
+                            href="forma-de-trabajar.html#team-drive"><b>3.4</b>Cómo impulsamos a nuestro equipo</a><a
+                            href="forma-de-trabajar.html#teamwork"><b>3.5</b>Trabajamos en equipo</a></div>
+                </div>
+                <div class="nav-group"><button class="nav-link nav-trigger" type="button" aria-expanded="false">Nuestro
+                        compromiso <span>⌄</span></button>
+                    <div class="nav-dropdown nav-dropdown-wide"><a href="compromiso.html#standards"><b>4.1</b>Nuestros
+                            estándares</a><a href="compromiso.html#results"><b>4.2</b>Medimos nuestros resultados</a><a
+                            href="compromiso.html#improvement"><b>4.3</b>Seguimiento y mejora</a></div>
+                </div>
+            </nav>
+            <div class="nav-tools">
+                <div class="status">CAMPUS SYSTEMS // <b>ONLINE</b></div><button class="sound" id="soundBtn">SOUND //
+                    OFF</button>
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú"
+                    aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+    <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile-menu-head"><span class="mono">SFIT // NAVIGATION</span><button id="menuClose" type="button"
+                aria-label="Cerrar menú">×</button></div>
+        <a href="index.html" class="mobile-link">1. Inicio</a>
+        <div class="mobile-group">
+            <div class="mobile-title">2. Organización</div><a href="organizacion.html#org-structure">2.1. Nuestra
+                estructura</a><a href="organizacion.html#org-areas">2.2. Nuestras áreas</a><a
+                href="organizacion.html#org-team">2.3. Nuestro equipo</a>
+        </div>
+        <div class="mobile-group">
+            <div class="mobile-title">3. Nuestra forma de trabajar</div><a href="forma-de-trabajar.html#culture">3.1.
+                Nuestra cultura de trabajo</a><a href="forma-de-trabajar.html#leadership">3.2. Cómo lideramos</a><a
+                href="forma-de-trabajar.html#communication">3.3. Cómo nos comunicamos</a><a
+                href="forma-de-trabajar.html#team-drive">3.4. Cómo impulsamos a nuestro equipo</a><a
+                href="forma-de-trabajar.html#teamwork">3.5. Trabajamos en equipo</a>
+        </div>
+        <div class="mobile-group">
+            <div class="mobile-title">4. Nuestro compromiso</div><a href="compromiso.html#standards">4.1. Nuestros
+                estándares</a><a href="compromiso.html#results">4.2. Medimos nuestros resultados</a><a
+                href="compromiso.html#improvement">4.3. Seguimiento y mejora</a>
+        </div>
+    </aside>
+    <main>
+        <div id="intro">
+            <div class="intro-inner">
+                <div class="intro-line"></div>
+                <div class="emblem"><span>SFIT</span></div>
+                <div class="intro-copy">SYSTEM INITIALIZING<br>PROJECT // SFIT<br>STRATEGIC PLAN // 2026–2030</div>
+            </div>
+        </div>
+        <nav class="progress" aria-label="Progreso"><button class=active data-target="station01"
+                title="Filosofía"></button><button data-target="station02" title="Panorama"></button><button
+                data-target="station03" title="Horizonte"></button><button data-target="station04"
+                title="Estrategia"></button><button data-target="station05" title="Acción"></button></nav>
+        <section class="hero" id="home">
+            <div class="container hero-content">
+                <div class="eyebrow reveal">Donde las ideas se convierten en héroes.</div>
+                <h1 class="hero-title reveal">Instituto<br>tecnológico de <br><span class="accent">San Fransokyo</span>
+                </h1>
+                <p class="hero-sub reveal">Bienvenido al núcleo de desarrollo donde el punto de encuentro entre la
+                    tecnología de punta, la robótica avanzada y la creatividad sin límites cobra vida.</p>
+                <a href="#station01" class="cta reveal"><span>Comenzar el recorrido</span><span>→</span></a>
+                <div class="hud-corner">SFIT_01 // CONNECTED<br>COORD // 37.7749 / -122.4194<br>STRATEGIC SYSTEM //
+                    ACTIVE</div>
+            </div>
+            <div class="city" aria-hidden="true">
+                <div class="skyline"></div>
+                <div class="bridge"></div>
+                <div class="building"></div>
+                <div class="grid"></div>
+                <div class="scanline"></div>
+            </div>
+        </section>
+        <section class="transition">
+            <div class="light-sweep"></div>
+            <div class="transition-title">
+                <div class="eyebrow">PROJECT // 001</div>
+                <h2>SAN FRANSOKYO<br>INSTITUTE OF TECHNOLOGY</h2>
+                <div class="transition-meta">STATUS // ACTIVE<br>CAMPUS SYSTEMS // NOMINAL</div>
+            </div>
+        </section>
+        <section class="strategy">
+            <div class="section-head container">
+                <div>
+                    <div class="eyebrow">STRATEGIC JOURNEY // 05 STATIONS</div>
+                    <h2>De dónde<br>venimos →<br>hacia dónde<br><span style="color:var(--cyan)">vamos.</span></h2>
+                    <p>El plan estratégico se presenta como un recorrido: identidad, diagnóstico, horizonte, decisiones
+                        y ejecución.</p>
+                </div>
+            </div>
+            <article class="station" id="station01">
+                <div class="container station-grid">
+                    <div>
+                        <div class="station-num">01 // FILOSOFÍA</div>
+                        <h3>Nuestra<br>identidad.</h3>
+                        <p class="station-copy">Una institución que entiende la tecnología como una herramienta para
+                            resolver problemas reales y ampliar las posibilidades de las personas.</p>
+                    </div>
+                    <div class="panel">
+                        <div class="cards">
+                            <div class="card"><strong>MISIÓN</strong>
+                                <p>Desarrollar soluciones tecnológicas innovadoras y accesibles de asistencia y
+                                    bienestar, diseñadas para mejorar la calidad de vida y el cuidado cotidiano de las
+                                    personas</p>
+                            </div>
+                            <div class="card"><strong>VISIÓN</strong>
+                                <p>"Ser una organización referente en el desarrollo de dispositivos y soluciones de alta
+                                    tecnología con un gran impacto humano, reconocidos por su funcionalidad, empatía y
+                                    cercanía con el usuario."</p>
+                            </div>
+                            <div class="card"><strong>VALORES</strong>
+                                <p>Empatia · Innovación con Propósito · Cuidado Integral · Accesibilidad · Calidad y
+                                    Confianza · Colaboración · Sostenibilidad</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="station" id="station02">
+                <div class="container station-grid">
+                    <div>
+                        <div class="station-num">02 // PANORAMA</div>
+                        <h3>El sistema<br>bajo análisis.</h3>
+                        <p class="station-copy">El FODA evalúa las capacidades internas del instituto y los factores
+                            externos que representan oportunidades o riesgos críticos.</p>
+                    </div>
+                    <div class="panel">
+                        <div class="foda">
+                            <div class="box internal"><b>FORTALEZAS</b>
+                                <p>• Prestigio global en robótica<br>• Instalaciones de alta tecnología<br>• Egresados
+                                    fundadores de empresas<br>• Sólido respaldo financiero</p>
+                            </div>
+                            <div class="box internal"><b>DEBILIDADES</b>
+                                <p>• Falta de supervisión en laboratorios<br>• Rivalidad y opacidad en incidentes<br>•
+                                    Brechas en apoyo económico estudiantil<br>• Seguridad vulnerable ante ataques</p>
+                            </div>
+                            <div class="box external"><b>OPORTUNIDADES</b>
+                                <p>• Alianzas corporativas y financiamiento<br>• Ampliación de becas<br>• Modernización
+                                    de seguridad e investigación<br>• Reconocimiento mediático</p>
+                            </div>
+                            <div class="box external"><b>AMENAZAS</b>
+                                <p>• Competencia con instituciones elite<br>• Riesgo de robo de propiedad
+                                    intelectual<br>• Exposición a ataques y demandas<br>• Pérdida de confianza de
+                                    patrocinadores</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="station" id="station03">
+                <div class="container station-grid">
+                    <div>
+                        <div class="station-num">03 // OBJETIVOS SMART</div>
+                        <h3>Diseñar<br>el futuro.</h3>
+                        <p class="station-copy">Metas específicas, medibles y con plazos definidos para trazar la ruta
+                            exacta de crecimiento y evolución del instituto.</p>
+                    </div>
+                    <div class="panel">
+                        <div class="cards">
+                            <div class="card"><strong>Objetivo 1: Innovación tecnológica:</strong>
+                                <p>Incrementar en un 20 % la cantidad de proyectos tecnológicos desarrollados por los
+                                    estudiantes
+                                    del Instituto Tecnológico de San Fransokyo durante el próximo ciclo escolar,
+                                    mediante concursos,
+                                    laboratorios y programas de innovación.</p>
+                            </div>
+                            <div class="card"><strong>Objetivo 2: Investigación y desarrollo:</strong>
+                                <p>Crear al menos 10 proyectos de investigación y desarrollo tecnológico relacionados
+                                    con robótica,
+                                    inteligencia artificial, biotecnología y otras áreas de ingeniería durante el
+                                    próximo año académico.</p>
+                            </div>
+                            <div class="card"><strong>Objetivo 3: Vinculación empresarial:</strong>
+                                <p>Establecer al menos 5 convenios de colaboración con empresas tecnológicas durante los
+                                    próximos 12 meses para ofrecer prácticas profesionales, proyectos conjuntos y
+                                    oportunidades de
+                                    desarrollo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="station" id="station04">
+                <div class="container station-grid">
+                    <div>
+                        <div class="station-num">04 // ESTRATEGIA</div>
+                        <h3>Conectar<br>las piezas.</h3>
+                        <p class="station-copy">Como microbots, cada iniciativa adquiere sentido al conectarse con las
+                            capacidades y retos detectados en el diagnóstico.</p>
+                        <div class="strategy-tags"><span class="tag">FO // EXPANSIÓN</span><span class="tag">FA //
+                                RESILIENCIA</span><span class="tag">DO // DESARROLLO</span><span class="tag">DA //
+                                PROTECCIÓN</span></div>
+                    </div>
+                    <div class="panel">
+                        <div class="cards">
+                            <div class="card"><strong>ESTRATEGIA 1</strong>
+                                <strong>Objetivo: Innovación tecnológica</strong>
+                                <p>Crear el concurso de robotica del ITSF:
+                                    Complementar las ferias de robotica con un
+                                    concurso de robotica, para fomentar la
+                                    competencia sana y la innovación orientada
+                                    a soluciones reales, otorgando
+                                    financiamiento a los ganadores.</p>
+                            </div>
+                            <div class="card"><strong>ESTRATEGIA 2</strong>
+                                <strong>Objetivo: Investigación y
+                                    desarrollo.</strong>
+                                <p>Fomento de Colaboración
+                                    Interdisciplinaria:
+                                    Romper los silos entre las diferentes
+                                    ingenierías para crear proyectos más
+                                    complejos, y asignar recursos específicos
+                                    para acelerar proyectos en fase de
+                                    concepto</p>
+                            </div>
+                            <div class="card"><strong>ESTRATEGIA 3</strong>
+                                <strong>Objetivo: Vinculación empresarial</strong>
+                                <p>Portafolio de Alianzas "Industry-
+                                    Academia":
+                                    Acercarse a las grandes corporaciones
+                                    ofreciéndoles acceso temprano al talento
+                                    emergente y a patentes compartidas. Así
+                                    como, invitar a las empresas a la escuela
+                                    para que vean los proyectos en acción.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="station" id="station05">
+                <div class="container station-grid">
+                    <div>
+                        <div class="station-num">05 // PLAN DE ACCIÓN</div>
+                        <h3>De la idea<br>a la acción.</h3>
+                        <p class="station-copy">Nuestro plan de acción convierte las líneas estratégicas en fases
+                            implementables.</p>
+                    </div>
+                    <div class="panel">
+                        <div class="timeline">
+                            <div class="timeline-line"></div>
+                            <div class="timeline-progress"></div>
+                            <!-- APARTADO DE LA PRIMER ESTARTEGIA
+                             ------
+                            --------
+                            -->
+                            <div class="milestone">
+                                <div class="dot"></div><b style="font-size:16px">01 // PLAN DE ACCIÓN DE LA PRIMER
+                                    ESTARTEGIA</b>
+                                <h4>Innovación Tecnológica</h4>
+                                <p><strong>Actividad: </strong> Concurso de robotica de ITSF</p>
+                                <br>
+                                <b>// QUÉ HACE</b>
+                                <p>Definir las bases y jurado, conseguir patrocinio y lanzar <br> la convocatoria,
+                                    realizar el concurso y premirar</p>
+                                <b>// RESPONDABLES</b>
+                                <p>Comité de robótica, Vinculación y Dirección</p>
+                                <b>// PRESUPUESTO</b>
+                                <p>$50,000</p>
+                                <b>// TIEMPO</b>
+                                <p>1 a 5 meses</p>
+                                <b>// INDICADOR</b>
+                                <p>15 equipos inscritos y 3 proyectos ganadores fin</p>
+                            </div>
+
+
+
+
+                            <!-- APARTADO DE LA SEGUNDA ESTARTEGIA
+                             ------
+                            --------
+                            -->
+
+
+                            <div class="milestone">
+                                <div class="dot"></div><b style="font-size:16px">02 // PLAN DE ACCIÓN DE LA SEGUNDA
+                                    ESTARTEGIA</b>
+                                <h4>Investigación y desarrollo</h4>
+                                <p><strong>Actividad: </strong> Fomento de Colaboración Interdisciplinaria</p>
+                                <br>
+                                <b>// QUÉ HACE</b>
+                                <p>Crear un comité con todas las ingenierías, convoca proyectos en equipos mixtos y
+                                    financias los mejores proyectos</p>
+                                <b>// RESPONDABLES</b>
+                                <p>Subdirección académica, Jefaturas de carrea de Investigación</p>
+                                <b>// PRESUPUESTO</b>
+                                <p>$80,000 MXN (aprox. $20,000 por proyecto)</p>
+                                <b>// TIEMPO</b>
+                                <p>1 a 6 meses</p>
+                                <b>// INDICADOR</b>
+                                <p>8 proyectos interdisciplinarios registrados y 4 prototipos financiados</p>
+                            </div>
+
+
+                            <!-- APARTADO DE LA TERCER ESTARTEGIA
+                             ------
+                            --------
+                            -->
+                            <div class="milestone">
+                                <div class="dot"></div><b style="font-size:16px">03 // PLAN DE ACCIÓN DE LA TERCER
+                                    ESTARTEGIA </b>
+                                <h4>Vinculación empresarial</h4>
+                                <p><strong>Actividad: </strong> Portafolio de Alianzas "Industry-Academia"</p>
+                                <br>
+                                <b>// QUÉ HACE</b>
+                                <p>Armar el portafolio de talento y patentes, contactar empresas para firmar
+                                    convenios y organizar el "Día de la Industria".</p>
+                                <b>// RESPONDABLES</b>
+                                <p>Vinculación, Investigación y Dirección</p>
+                                <b>// PRESUPUESTO</b>
+                                <p>$30,000 MXN (evento y difusión)</p>
+                                <b>// TIEMPO</b>
+                                <p>1 a 6 meses</p>
+                                <b>// INDICADOR</b>
+                                <p>5 convenios firmados y 10 empresas asistentes al evento</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+
+
+        </section>
+        <section class="org-section">
+            <div class="container">
+                <div class="eyebrow">EXPLORA // 03 MÓDULOS</div>
+                <div class="area-grid">
+                    <div class="info-card reveal"><span class="code">02 // ORGANIZACIÓN</span>
+                        <h4><a href="organizacion.html">Estructura, áreas y equipo →</a></h4>
+                        <p>Organigrama, departamentos y roles clave.</p>
+                    </div>
+                    <div class="info-card reveal"><span class="code">03 // FORMA DE TRABAJAR</span>
+                        <h4><a href="forma-de-trabajar.html">Cultura y liderazgo →</a></h4>
+                        <p>Cultura, liderazgo, comunicación, motivación y colaboración.</p>
+                    </div>
+                    <div class="info-card reveal"><span class="code">04 // COMPROMISO</span>
+                        <h4><a href="compromiso.html">Estándares y KPIs →</a></h4>
+                        <p>Calidad, resultados y mejora continua.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="campus">
+            <div class="container">
+                <div class="eyebrow">CAMPUS // INTERACTIVE SCAN</div>
+                <h2>Explora el<br><span style="color:var(--cyan)">instituto.</span></h2>
+                <p style="max-width:550px">Los puntos representan áreas clave del ecosistema SFIT. En escritorio usa
+                    hover; en móvil, toca cada punto.</p>
+                <div class="map" id="map">
+                    <div class="map-campus"></div><button class="hotspot" style="left:30%;top:35%"
+                        data-name="ROBOTICS LAB"
+                        data-text="Centro de prototipado, microbots y proyectos de innovación aplicada."></button><button
+                        class="hotspot" style="left:63%;top:28%" data-name="CHEMISTRY LAB"
+                        data-text="Espacio de investigación y experimentación interdisciplinaria."></button><button
+                        class="hotspot" style="left:72%;top:59%" data-name="ENGINEERING WORKSHOP"
+                        data-text="Taller para construir, probar y perfeccionar soluciones."></button><button
+                        class="hotspot" style="left:38%;top:66%" data-name="OPERATIONS CENTER"
+                        data-text="Coordinación de recursos, procesos y ejecución del plan estratégico."></button><button
+                        class="hotspot" style="left:52%;top:48%" data-name="STUDENT WELLNESS"
+                        data-text="Bienestar estudiantil: tecnología al servicio de las personas."></button>
+                    <div class="hotspot-panel" id="hotspotPanel"><b id="hotspotName"></b>
+                        <p id="hotspotText"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="gallery">
+            <div class="container">
+                <div class="eyebrow">SFIT SYSTEMS // VISUAL INDEX</div>
+                <h2>Un campus<br>en movimiento.</h2>
+                <div class="gallery-grid" style="margin-top:45px">
+                    <div class="gallery-item">
+                        <div class="gallery-label">01 // CAMPUS CORE</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-label">02 // MICROBOT LAB</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-label">03 // RESEARCH</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-label">04 // ENGINEERING</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-label">05 // CITY NETWORK</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="eyebrow">STRATEGIC PLAN // 2026–2030</div>
+                <h2>La innovación importa<br>cuando <span style="color:var(--cyan)">sirve a las personas.</span></h2>
+                <p>SFIT conecta conocimiento, tecnología y comunidad para convertir pequeñas piezas en soluciones de
+                    mayor escala.</p><a href="#home" class="cta"><span>Volver al inicio del
+                        recorrido</span><span>↑</span></a>
+                <div class="footer-mark"><span>SFIT</span></div>
+            </div>
+        </footer>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
