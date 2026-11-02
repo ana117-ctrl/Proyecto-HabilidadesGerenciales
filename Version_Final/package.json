@@ -1,0 +1,11 @@
+{
+  "name": "sfit-institute",
+  "version": "1.1.0",
+  "private": true,
+  "description": "SFIT: sitio académico con catálogo y atención local de demostración",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "check": "node --check app.js && node --check inicio.js && node --check institucional.js && node --check content.js && node --check server.js && node --check interacciones.js && node --check escenas.js && node --check catalogo.js && node --check atencion.js"
+  }
+}

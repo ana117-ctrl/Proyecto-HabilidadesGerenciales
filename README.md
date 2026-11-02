@@ -1,3 +1,15 @@
+# Versión final del sitio SFIT
+
+El trabajo completo está en [Version_Final](Version_Final/).
+
+- [Instrucciones de ejecución](Version_Final/README.md)
+- [Guía PDF](Version_Final/Guia-ejecucion-SFIT.pdf)
+- [Inicio](Version_Final/index.html)
+
+Incluye catálogo de diez productos, atención al cliente y escenas animadas.
+
+---
+
 # Proyecto-HabilidadesGerenciales
 Proyecto Baymax
 

@@ -1,0 +1,7 @@
+# Preserve PDFs and image bytes on Windows.
+*.pdf binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
+*.svg text eol=lf
